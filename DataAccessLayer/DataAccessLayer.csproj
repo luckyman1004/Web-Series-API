@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -53,69 +54,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archive.cs">
+    <Compile Include="EntityFramework\Archive.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Expans.cs">
+    <Compile Include="EntityFramework\Expans.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="EntityFramework\Login.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Package.cs">
+    <Compile Include="EntityFramework\Package.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Salary.cs">
+    <Compile Include="EntityFramework\Salary.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Session.cs">
+    <Compile Include="EntityFramework\Session.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="EntityFramework\User.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Video.cs">
+    <Compile Include="EntityFramework\Video.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="WebSeriesDB.Context.cs">
+    <Compile Include="EntityFramework\WebSeriesDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WebSeriesDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WebSeriesDB.cs">
+    <Compile Include="EntityFramework\WebSeriesDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="WebSeriesDB.Designer.cs">
+    <Compile Include="EntityFramework\WebSeriesDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICommonRepo.cs" />
+    <Compile Include="Repo\PackageRepo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="packages.config" />
-    <EntityDeploy Include="WebSeriesDB.edmx">
+    <EntityDeploy Include="EntityFramework\WebSeriesDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>WebSeriesDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WebSeriesDB.edmx.diagram">
+    <None Include="EntityFramework\WebSeriesDB.edmx.diagram">
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="WebSeriesDB.Context.tt">
+    <Content Include="EntityFramework\WebSeriesDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
       <LastGenOutput>WebSeriesDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WebSeriesDB.tt">
+    <Content Include="EntityFramework\WebSeriesDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
       <LastGenOutput>WebSeriesDB.cs</LastGenOutput>
