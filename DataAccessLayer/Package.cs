@@ -23,9 +23,7 @@ namespace DataAccessLayer
         public string Code { get; set; }
         public string Status { get; set; }
         public Nullable<int> UserId { get; set; }
-        public int PackageAdminId { get; set; }
     
-        public virtual PackageAdmin PackageAdmin { get; set; }
         public virtual User User { get; set; }
     }
 }

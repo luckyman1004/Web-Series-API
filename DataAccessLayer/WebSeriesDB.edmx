@@ -31,14 +31,6 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="PackageAdmins">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="Packages">
           <Key>
             <PropertyRef Name="Id" />
@@ -52,7 +44,6 @@
           <Property Name="Code" Type="nchar" MaxLength="10" />
           <Property Name="Status" Type="nvarchar" MaxLength="20" />
           <Property Name="UserId" Type="int" />
-          <Property Name="PackageAdminId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Salarys">
           <Key>
@@ -131,18 +122,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Packages_PackageAdmins">
-          <End Role="PackageAdmins" Type="Self.PackageAdmins" Multiplicity="1" />
-          <End Role="Packages" Type="Self.Packages" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PackageAdmins">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Packages">
-              <PropertyRef Name="PackageAdminId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Packages_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Packages" Type="Self.Packages" Multiplicity="*" />
@@ -195,7 +174,6 @@
           <EntitySet Name="Archives" EntityType="Self.Archives" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expanses" EntityType="Self.Expanses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PackageAdmins" EntityType="Self.PackageAdmins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salarys" EntityType="Self.Salarys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="dbo" store:Type="Tables" />
@@ -208,10 +186,6 @@
           <AssociationSet Name="FK_Expanses_Users" Association="Self.FK_Expanses_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Expanses" EntitySet="Expanses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Packages_PackageAdmins" Association="Self.FK_Packages_PackageAdmins">
-            <End Role="PackageAdmins" EntitySet="PackageAdmins" />
-            <End Role="Packages" EntitySet="Packages" />
           </AssociationSet>
           <AssociationSet Name="FK_Packages_Users" Association="Self.FK_Packages_Users">
             <End Role="Users" EntitySet="Users" />
@@ -264,15 +238,6 @@
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sessions" Relationship="Self.FK_Sessions_Logins" FromRole="Logins" ToRole="Sessions" />
         </EntityType>
-        <EntityType Name="PackageAdmin">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_PackageAdmins" FromRole="PackageAdmins" ToRole="Packages" />
-        </EntityType>
         <EntityType Name="Package">
           <Key>
             <PropertyRef Name="Id" />
@@ -286,8 +251,6 @@
           <Property Name="Code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" />
-          <Property Name="PackageAdminId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PackageAdmin" Relationship="Self.FK_Packages_PackageAdmins" FromRole="Packages" ToRole="PackageAdmins" />
           <NavigationProperty Name="User" Relationship="Self.FK_Packages_Users" FromRole="Packages" ToRole="Users" />
         </EntityType>
         <EntityType Name="Salary">
@@ -387,18 +350,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Packages_PackageAdmins">
-          <End Role="PackageAdmins" Type="Self.PackageAdmin" Multiplicity="1" />
-          <End Role="Packages" Type="Self.Package" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PackageAdmins">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Packages">
-              <PropertyRef Name="PackageAdminId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Packages_Users">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="Packages" Type="Self.Package" Multiplicity="*" />
@@ -439,7 +390,6 @@
           <EntitySet Name="Archives" EntityType="Self.Archive" />
           <EntitySet Name="Expanses" EntityType="Self.Expans" />
           <EntitySet Name="Logins" EntityType="Self.Login" />
-          <EntitySet Name="PackageAdmins" EntityType="Self.PackageAdmin" />
           <EntitySet Name="Packages" EntityType="Self.Package" />
           <EntitySet Name="Salarys" EntityType="Self.Salary" />
           <EntitySet Name="Sessions" EntityType="Self.Session" />
@@ -456,10 +406,6 @@
           <AssociationSet Name="FK_Sessions_Logins" Association="Self.FK_Sessions_Logins">
             <End Role="Logins" EntitySet="Logins" />
             <End Role="Sessions" EntitySet="Sessions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Packages_PackageAdmins" Association="Self.FK_Packages_PackageAdmins">
-            <End Role="PackageAdmins" EntitySet="PackageAdmins" />
-            <End Role="Packages" EntitySet="Packages" />
           </AssociationSet>
           <AssociationSet Name="FK_Packages_Users" Association="Self.FK_Packages_Users">
             <End Role="Users" EntitySet="Users" />
@@ -509,15 +455,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PackageAdmins">
-            <EntityTypeMapping TypeName="WebSeriesDBModel.PackageAdmin">
-              <MappingFragment StoreEntitySet="PackageAdmins">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Packages">
             <EntityTypeMapping TypeName="WebSeriesDBModel.Package">
               <MappingFragment StoreEntitySet="Packages">
@@ -530,7 +467,6 @@
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PackageAdminId" ColumnName="PackageAdminId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

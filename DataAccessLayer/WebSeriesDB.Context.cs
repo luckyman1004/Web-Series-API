@@ -28,7 +28,6 @@ namespace DataAccessLayer
         public virtual DbSet<Archive> Archives { get; set; }
         public virtual DbSet<Expans> Expanses { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
-        public virtual DbSet<PackageAdmin> PackageAdmins { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Salary> Salarys { get; set; }
         public virtual DbSet<Session> Sessions { get; set; }
