@@ -15,16 +15,21 @@ namespace Web_Series_API__ASP.NET.Controllers
         [HttpGet]
         public HttpResponseMessage GetNames()
         {
-            //return PackageService.GetPackageNames();
             return Request.CreateResponse(HttpStatusCode.OK, PackageService.GetPackageNames()); 
         }
-
 
         [Route("api/package/all")]
         [HttpGet]
         public List<PackageModel> GetAll()
         {
             return PackageService.Get();
+        }
+
+        [Route("api/package/create")]
+        [HttpPost]
+        public void Create(PackageModel p)
+        {
+            PackageService.Create(p);
         }
     }
 }
