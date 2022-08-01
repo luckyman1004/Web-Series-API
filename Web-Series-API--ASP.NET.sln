@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web-Series-API--ASP.NET", "Web-Series-API--ASP.NET\Web-Series-API--ASP.NET.csproj", "{C918B064-69C2-4763-8C78-8C8247538E17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "Web-Series-API--ASP.NET\WebApi.csproj", "{C918B064-69C2-4763-8C78-8C8247538E17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntityLayer", "BusinessEntityLayer\BusinessEntityLayer.csproj", "{8B5E42C6-953D-4305-84F0-572C37D6000B}"
 EndProject
