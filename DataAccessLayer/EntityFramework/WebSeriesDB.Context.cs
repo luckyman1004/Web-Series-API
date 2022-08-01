@@ -30,8 +30,9 @@ namespace DataAccessLayer.EntityFramework
         public DbSet<Login> Logins { get; set; }
         public DbSet<Package> Packages { get; set; }
         public DbSet<Salary> Salarys { get; set; }
-        public DbSet<Session> Sessions { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Auth> Auths { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

@@ -57,6 +57,9 @@
     <Compile Include="EntityFramework\Archive.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\Auth.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\Expans.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -69,7 +72,7 @@
     <Compile Include="EntityFramework\Salary.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\Session.cs">
+    <Compile Include="EntityFramework\sysdiagram.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\User.cs">

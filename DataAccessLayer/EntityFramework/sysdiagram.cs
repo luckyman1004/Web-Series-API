@@ -12,19 +12,12 @@ namespace DataAccessLayer.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Login
+    public partial class sysdiagram
     {
-        public Login()
-        {
-            this.Auths = new HashSet<Auth>();
-        }
-    
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-    
-        public virtual ICollection<Auth> Auths { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
