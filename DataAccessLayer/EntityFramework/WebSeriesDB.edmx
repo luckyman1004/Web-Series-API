@@ -4,13 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebSeriesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebSeriesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Archives">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VideoId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Auths">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="nvarchar(max)" />
+          <Property Name="Device" Type="nvarchar" MaxLength="50" />
+          <Property Name="Platfrom" Type="nvarchar" MaxLength="30" />
+          <Property Name="Browser" Type="nvarchar" MaxLength="30" />
+          <Property Name="LoginTime" Type="datetime" />
+          <Property Name="GMT" Type="nvarchar" MaxLength="50" />
+          <Property Name="OS" Type="nvarchar" MaxLength="30" />
+          <Property Name="LoginId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Expanses">
           <Key>
@@ -28,7 +43,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Packages">
@@ -55,19 +70,15 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sessions">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Device" Type="nvarchar" MaxLength="50" />
-          <Property Name="Platfrom" Type="nvarchar" MaxLength="30" />
-          <Property Name="Browser" Type="nvarchar" MaxLength="30" />
-          <Property Name="LoginTime" Type="datetime" />
-          <Property Name="GMT" Type="nvarchar" MaxLength="50" />
-          <Property Name="OS" Type="nvarchar" MaxLength="30" />
-          <Property Name="LoginId" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -76,7 +87,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="Phone" Type="nvarchar" MaxLength="15" />
           <Property Name="DOB" Type="date" />
           <Property Name="Role" Type="nvarchar" MaxLength="30" />
@@ -107,6 +118,18 @@
             </Principal>
             <Dependent Role="Archives">
               <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auths_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Auths" Type="Self.Auths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Auths">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -148,12 +171,12 @@
         </Association>
         <Association Name="FK_Sessions_Logins">
           <End Role="Logins" Type="Self.Logins" Multiplicity="1" />
-          <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+          <End Role="Auths" Type="Self.Auths" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Logins">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Sessions">
+            <Dependent Role="Auths">
               <PropertyRef Name="LoginId" />
             </Dependent>
           </ReferentialConstraint>
@@ -172,16 +195,21 @@
         </Association>
         <EntityContainer Name="WebSeriesDBModelStoreContainer">
           <EntitySet Name="Archives" EntityType="Self.Archives" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Auths" EntityType="Self.Auths" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expanses" EntityType="Self.Expanses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salarys" EntityType="Self.Salarys" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Archives_Videos" Association="Self.FK_Archives_Videos">
             <End Role="Videos" EntitySet="Videos" />
             <End Role="Archives" EntitySet="Archives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auths_Users" Association="Self.FK_Auths_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Auths" EntitySet="Auths" />
           </AssociationSet>
           <AssociationSet Name="FK_Expanses_Users" Association="Self.FK_Expanses_Users">
             <End Role="Users" EntitySet="Users" />
@@ -197,15 +225,14 @@
           </AssociationSet>
           <AssociationSet Name="FK_Sessions_Logins" Association="Self.FK_Sessions_Logins">
             <End Role="Logins" EntitySet="Logins" />
-            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="Auths" EntitySet="Auths" />
           </AssociationSet>
           <AssociationSet Name="FK_Videos_Users" Association="Self.FK_Videos_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Videos" EntitySet="Videos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebSeriesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -234,9 +261,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Sessions" Relationship="Self.FK_Sessions_Logins" FromRole="Logins" ToRole="Sessions" />
+          <NavigationProperty Name="Auths" Relationship="WebSeriesDBModel.FK_Sessions_Logins1" FromRole="Login" ToRole="Auth" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
@@ -264,21 +291,6 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Salarys_Users" FromRole="Salarys" ToRole="Users" />
         </EntityType>
-        <EntityType Name="Session">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Device" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Platfrom" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Browser" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LoginTime" Type="DateTime" Precision="3" />
-          <Property Name="GMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OS" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LoginId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Login" Relationship="Self.FK_Sessions_Logins" FromRole="Sessions" ToRole="Logins" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -286,7 +298,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -299,6 +311,7 @@
           <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_Users" FromRole="Users" ToRole="Packages" />
           <NavigationProperty Name="Salarys" Relationship="Self.FK_Salarys_Users" FromRole="Users" ToRole="Salarys" />
           <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Users" FromRole="Users" ToRole="Videos" />
+          <NavigationProperty Name="Auths" Relationship="WebSeriesDBModel.FK_Auths_Users" FromRole="User" ToRole="Auth" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -335,18 +348,6 @@
             </Principal>
             <Dependent Role="Expanses">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sessions_Logins">
-          <End Role="Logins" Type="Self.Login" Multiplicity="1" />
-          <End Role="Sessions" Type="Self.Session" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Logins">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sessions">
-              <PropertyRef Name="LoginId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -392,7 +393,6 @@
           <EntitySet Name="Logins" EntityType="Self.Login" />
           <EntitySet Name="Packages" EntityType="Self.Package" />
           <EntitySet Name="Salarys" EntityType="Self.Salary" />
-          <EntitySet Name="Sessions" EntityType="Self.Session" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Videos" EntityType="Self.Video" />
           <AssociationSet Name="FK_Archives_Videos" Association="Self.FK_Archives_Videos">
@@ -402,10 +402,6 @@
           <AssociationSet Name="FK_Expanses_Users" Association="Self.FK_Expanses_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Expanses" EntitySet="Expanses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sessions_Logins" Association="Self.FK_Sessions_Logins">
-            <End Role="Logins" EntitySet="Logins" />
-            <End Role="Sessions" EntitySet="Sessions" />
           </AssociationSet>
           <AssociationSet Name="FK_Packages_Users" Association="Self.FK_Packages_Users">
             <End Role="Users" EntitySet="Users" />
@@ -419,7 +415,68 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Videos" EntitySet="Videos" />
           </AssociationSet>
+          <EntitySet Name="Auths" EntityType="WebSeriesDBModel.Auth" />
+          <AssociationSet Name="FK_Sessions_Logins1" Association="WebSeriesDBModel.FK_Sessions_Logins1">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Auth" EntitySet="Auths" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="WebSeriesDBModel.sysdiagram" />
+          <AssociationSet Name="FK_Auths_Users" Association="WebSeriesDBModel.FK_Auths_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Auth" EntitySet="Auths" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Auth">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Device" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Platfrom" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Browser" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LoginTime" Type="DateTime" Precision="3" />
+          <Property Name="GMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OS" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LoginId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Login" Relationship="WebSeriesDBModel.FK_Sessions_Logins1" FromRole="Auth" ToRole="Login" />
+          <NavigationProperty Name="User" Relationship="WebSeriesDBModel.FK_Auths_Users" FromRole="Auth" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Sessions_Logins1">
+          <End Type="WebSeriesDBModel.Login" Role="Login" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.Auth" Role="Auth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Auth">
+              <PropertyRef Name="LoginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Auths_Users">
+          <End Type="WebSeriesDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.Auth" Role="Auth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Auth">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -481,21 +538,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sessions">
-            <EntityTypeMapping TypeName="WebSeriesDBModel.Session">
-              <MappingFragment StoreEntitySet="Sessions">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Device" ColumnName="Device" />
-                <ScalarProperty Name="Platfrom" ColumnName="Platfrom" />
-                <ScalarProperty Name="Browser" ColumnName="Browser" />
-                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
-                <ScalarProperty Name="GMT" ColumnName="GMT" />
-                <ScalarProperty Name="OS" ColumnName="OS" />
-                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="WebSeriesDBModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -524,6 +566,33 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
                 <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auths">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.Auth">
+              <MappingFragment StoreEntitySet="Auths">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="GMT" ColumnName="GMT" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="Platfrom" ColumnName="Platfrom" />
+                <ScalarProperty Name="Device" ColumnName="Device" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

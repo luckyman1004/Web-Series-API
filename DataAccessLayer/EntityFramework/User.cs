@@ -20,6 +20,7 @@ namespace DataAccessLayer.EntityFramework
             this.Packages = new HashSet<Package>();
             this.Salarys = new HashSet<Salary>();
             this.Videos = new HashSet<Video>();
+            this.Auths = new HashSet<Auth>();
         }
     
         public int Id { get; set; }
@@ -39,5 +40,6 @@ namespace DataAccessLayer.EntityFramework
         public virtual ICollection<Package> Packages { get; set; }
         public virtual ICollection<Salary> Salarys { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
+        public virtual ICollection<Auth> Auths { get; set; }
     }
 }

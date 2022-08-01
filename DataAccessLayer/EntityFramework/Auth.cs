@@ -12,10 +12,10 @@ namespace DataAccessLayer.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Session
+    public partial class Auth
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Token { get; set; }
         public string Device { get; set; }
         public string Platfrom { get; set; }
         public string Browser { get; set; }
@@ -23,7 +23,9 @@ namespace DataAccessLayer.EntityFramework
         public string GMT { get; set; }
         public string OS { get; set; }
         public int LoginId { get; set; }
+        public int UserId { get; set; }
     
         public virtual Login Login { get; set; }
+        public virtual User User { get; set; }
     }
 }
