@@ -20,13 +20,15 @@ namespace BusinessLogicLayer
                 c.CreateMap<User, UserModel>();
             });
             var mapper = new Mapper(config);
-            var data = mapper.Map<List<PackageModel>>(PackageRepo.Get());
+            var da = DataAccessFactory.PackageDataAccess();
+            var data = mapper.Map<List<PackageModel>>(da.Get());
             return data;
         }
 
         public static List<string> GetPackageNames()
         {
-            var data = PackageRepo.Get().Select(n => n.Name).ToList();
+            var da = DataAccessFactory.PackageDataAccess();
+            var data = da.Get().Select(n => n.Name).ToList();
             return data;
         }
 
@@ -38,7 +40,8 @@ namespace BusinessLogicLayer
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<Package>(p);
-            PackageRepo.Create(data);
+            var da = DataAccessFactory.PackageDataAccess();
+            da.Create(data);
         }
     }
 }

@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EntityFramework\Archive.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -96,7 +97,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\ICommonRepo.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Repo\PackageRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

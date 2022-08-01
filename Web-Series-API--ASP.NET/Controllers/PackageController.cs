@@ -20,16 +20,17 @@ namespace Web_Series_API__ASP.NET.Controllers
 
         [Route("api/package/all")]
         [HttpGet]
-        public List<PackageModel> GetAll()
+        public HttpResponseMessage GetAll()
         {
-            return PackageService.Get();
+            return Request.CreateResponse(HttpStatusCode.OK, PackageService.Get());
         }
 
         [Route("api/package/create")]
         [HttpPost]
-        public void Create(PackageModel p)
+        public HttpResponseMessage Create(PackageModel p)
         {
-            PackageService.Create(p);
+            PackageService.Create(p);    
+            return Request.CreateResponse(HttpStatusCode.Created, "Data Insert");
         }
     }
 }
