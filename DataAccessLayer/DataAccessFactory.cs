@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Interfaces;
+using DataAccessLayer.Repo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,20 @@ namespace DataAccessLayer
             db = new WebSeriesDBEntities();
         }
 
-        public static IRepository<Package, int> PackageDataAccess()
+        public static IPackage<Package, int> PackageDataAccess()
         {
             return new PackageRepo(db);
         }
+
+        public static IRepository<Auth, string> AuthDataAccess()
+        {
+            return new AuthRepo(db);
+        }
+
+        public static IRepository<User, int> UserDataAccess()
+        {
+            return new UserRepo(db);
+        }
+
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class PackageRepo : IRepository<Package, int>
+    public class PackageRepo : IPackage<Package, int>
     {
         WebSeriesDBEntities db;
 

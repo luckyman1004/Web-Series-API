@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IRepository<T, ID>
+    public interface IPackage<T, ID>
     {
         List<T> Get();
         T Get(ID id);
-        bool Create(T obj);
-        bool Update(T obj);
-        bool Delete(ID id);
+        void Create(T obj);
+        void Update(T obj);
+        void Delete(ID id);
     }
 }
