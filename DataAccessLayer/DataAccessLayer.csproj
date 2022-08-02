@@ -73,9 +73,6 @@
     <Compile Include="EntityFramework\Salary.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\sysdiagram.cs">
-      <DependentUpon>WebSeriesDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityFramework\User.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -115,7 +112,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="EntityFramework\WebSeriesDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
