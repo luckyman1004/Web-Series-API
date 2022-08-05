@@ -13,7 +13,7 @@ namespace Web_Series_API__ASP.NET.Controllers
     {
         [Route("api/package/names")]
         [HttpGet]
-        //[HttpGet]
+        
         public HttpResponseMessage GetNames()
         {
             return Request.CreateResponse(HttpStatusCode.OK, PackageService.GetPackageNames()); 
