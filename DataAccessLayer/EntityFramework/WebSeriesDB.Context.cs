@@ -29,6 +29,7 @@ namespace DataAccessLayer.EntityFramework
         public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<Expans> Expanses { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Mywatchlist> Mywatchlists { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Salary> Salarys { get; set; }
         public virtual DbSet<User> Users { get; set; }

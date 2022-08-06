@@ -67,6 +67,9 @@
     <Compile Include="EntityFramework\Login.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\Mywatchlist.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\Package.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
