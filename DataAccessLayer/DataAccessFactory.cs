@@ -21,6 +21,10 @@ namespace DataAccessLayer
         {
             return new PackageRepo(db);
         }
+        public static IMywatchlist<Mywatchlist, int> MywatchlistDataAccess()
+        {
+            return new MywatchlistRepo(db);
+        }
 
         public static IRepository<Auth, string> AuthDataAccess()
         {
