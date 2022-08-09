@@ -12,14 +12,13 @@ namespace DataAccessLayer.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Salary
+    public partial class Subscription
     {
         public int Id { get; set; }
-        public double Salary1 { get; set; }
-        public string Status { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<int> PackageId { get; set; }
         public Nullable<int> UserId { get; set; }
     
+        public virtual Package Package { get; set; }
         public virtual User User { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebSeriesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebSeriesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Archives">
           <Key>
             <PropertyRef Name="Id" />
@@ -74,10 +74,28 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Salary" Type="float" />
-          <Property Name="Status" Type="varchar" MaxLength="8" />
-          <Property Name="Date" Type="datetime" />
+          <Property Name="Salary" Type="float" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Subscriptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserReviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="250" />
+          <Property Name="Rating" Type="float" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -204,6 +222,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Subscriptions_Packages">
+          <End Role="Packages" Type="Self.Packages" Multiplicity="0..1" />
+          <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscriptions">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriptions_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscriptions">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReviews_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserReviews" Type="Self.UserReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserReviews">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReviews_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="UserReviews" Type="Self.UserReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserReviews">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Videos_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
@@ -224,6 +290,8 @@
           <EntitySet Name="Mywatchlists" EntityType="Self.Mywatchlists" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salarys" EntityType="Self.Salarys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriptions" EntityType="Self.Subscriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserReviews" EntityType="Self.UserReviews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Archives_Videos" Association="Self.FK_Archives_Videos">
@@ -258,13 +326,28 @@
             <End Role="Logins" EntitySet="Logins" />
             <End Role="Auths" EntitySet="Auths" />
           </AssociationSet>
+          <AssociationSet Name="FK_Subscriptions_Packages" Association="Self.FK_Subscriptions_Packages">
+            <End Role="Packages" EntitySet="Packages" />
+            <End Role="Subscriptions" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriptions_Users" Association="Self.FK_Subscriptions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscriptions" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReviews_Users" Association="Self.FK_UserReviews_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserReviews" EntitySet="UserReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReviews_Videos" Association="Self.FK_UserReviews_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="UserReviews" EntitySet="UserReviews" />
+          </AssociationSet>
           <AssociationSet Name="FK_Videos_Users" Association="Self.FK_Videos_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Videos" EntitySet="Videos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebSeriesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -339,15 +422,16 @@
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="User" Relationship="Self.FK_Packages_Users" FromRole="Packages" ToRole="Users" />
+          <NavigationProperty Name="Subscriptions" Relationship="WebSeriesDBModel.FK_Subscriptions_Packages" FromRole="Package" ToRole="Subscription" />
         </EntityType>
         <EntityType Name="Salary">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Salary1" Type="Double" />
-          <Property Name="Status" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Salary1" Type="Double" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="User" Relationship="Self.FK_Salarys_Users" FromRole="Salarys" ToRole="Users" />
         </EntityType>
@@ -373,6 +457,8 @@
           <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_Users" FromRole="Users" ToRole="Packages" />
           <NavigationProperty Name="Salarys" Relationship="Self.FK_Salarys_Users" FromRole="Users" ToRole="Salarys" />
           <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Users" FromRole="Users" ToRole="Videos" />
+          <NavigationProperty Name="Subscriptions" Relationship="WebSeriesDBModel.FK_Subscriptions_Users" FromRole="User" ToRole="Subscription" />
+          <NavigationProperty Name="UserReviews" Relationship="WebSeriesDBModel.FK_UserReviews_Users" FromRole="User" ToRole="UserReview" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -388,6 +474,7 @@
           <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Videos" FromRole="Videos" ToRole="Archives" />
           <NavigationProperty Name="Mywatchlists" Relationship="Self.FK_Mywatchlists_Videos" FromRole="Videos" ToRole="Mywatchlists" />
           <NavigationProperty Name="User" Relationship="Self.FK_Videos_Users" FromRole="Videos" ToRole="Users" />
+          <NavigationProperty Name="UserReviews" Relationship="WebSeriesDBModel.FK_UserReviews_Videos" FromRole="Video" ToRole="UserReview" />
         </EntityType>
         <Association Name="FK_Archives_Videos">
           <End Role="Videos" Type="Self.Video" Multiplicity="0..1" />
@@ -543,7 +630,95 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Videos" EntitySet="Videos" />
           </AssociationSet>
+          <EntitySet Name="Subscriptions" EntityType="WebSeriesDBModel.Subscription" />
+          <EntitySet Name="UserReviews" EntityType="WebSeriesDBModel.UserReview" />
+          <AssociationSet Name="FK_Subscriptions_Packages" Association="WebSeriesDBModel.FK_Subscriptions_Packages">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriptions_Users" Association="WebSeriesDBModel.FK_Subscriptions_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReviews_Users" Association="WebSeriesDBModel.FK_UserReviews_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserReview" EntitySet="UserReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReviews_Videos" Association="WebSeriesDBModel.FK_UserReviews_Videos">
+            <End Role="Video" EntitySet="Videos" />
+            <End Role="UserReview" EntitySet="UserReviews" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Package" Relationship="WebSeriesDBModel.FK_Subscriptions_Packages" FromRole="Subscription" ToRole="Package" />
+          <NavigationProperty Name="User" Relationship="WebSeriesDBModel.FK_Subscriptions_Users" FromRole="Subscription" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Double" />
+          <NavigationProperty Name="User" Relationship="WebSeriesDBModel.FK_UserReviews_Users" FromRole="UserReview" ToRole="User" />
+          <NavigationProperty Name="Video" Relationship="WebSeriesDBModel.FK_UserReviews_Videos" FromRole="UserReview" ToRole="Video" />
+        </EntityType>
+        <Association Name="FK_Subscriptions_Packages">
+          <End Type="WebSeriesDBModel.Package" Role="Package" Multiplicity="0..1" />
+          <End Type="WebSeriesDBModel.Subscription" Role="Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriptions_Users">
+          <End Type="WebSeriesDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="WebSeriesDBModel.Subscription" Role="Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReviews_Users">
+          <End Type="WebSeriesDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.UserReview" Role="UserReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserReview">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReviews_Videos">
+          <End Type="WebSeriesDBModel.Video" Role="Video" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.UserReview" Role="UserReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserReview">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -659,6 +834,26 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
                 <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriptions">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.Subscription">
+              <MappingFragment StoreEntitySet="Subscriptions">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserReviews">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.UserReview">
+              <MappingFragment StoreEntitySet="UserReviews">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

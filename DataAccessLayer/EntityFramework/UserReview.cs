@@ -12,14 +12,15 @@ namespace DataAccessLayer.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Salary
+    public partial class UserReview
     {
         public int Id { get; set; }
-        public double Salary1 { get; set; }
-        public string Status { get; set; }
-        public System.DateTime Date { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public int VideoId { get; set; }
+        public int UserId { get; set; }
+        public string Comment { get; set; }
+        public Nullable<double> Rating { get; set; }
     
         public virtual User User { get; set; }
+        public virtual Video Video { get; set; }
     }
 }
