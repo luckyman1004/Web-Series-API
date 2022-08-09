@@ -76,7 +76,13 @@
     <Compile Include="EntityFramework\Salary.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\Subscription.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\User.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\UserReview.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\Video.cs">

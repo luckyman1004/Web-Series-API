@@ -36,5 +36,7 @@ namespace DataAccessLayer.EntityFramework
         public virtual DbSet<Subscription> Subscriptions { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
+        public virtual DbSet<Subscription> Subscriptions { get; set; }
+        public virtual DbSet<UserReview> UserReviews { get; set; }
     }
 }
