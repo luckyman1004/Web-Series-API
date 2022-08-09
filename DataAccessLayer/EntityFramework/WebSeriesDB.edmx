@@ -26,7 +26,6 @@
           <Property Name="GMT" Type="nvarchar" MaxLength="50" />
           <Property Name="OS" Type="nvarchar" MaxLength="30" />
           <Property Name="LoginId" Type="int" />
-          <Property Name="UserId" Type="int" />
         </EntityType>
         <EntityType Name="Expanses">
           <Key>
@@ -46,6 +45,15 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Mywatchlists">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="UserID" Type="int" />
         </EntityType>
         <EntityType Name="Packages">
           <Key>
@@ -112,18 +120,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Auths_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Auths" Type="Self.Auths" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Auths">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Expanses_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Expanses" Type="Self.Expanses" Multiplicity="*" />
@@ -133,6 +129,42 @@
             </Principal>
             <Dependent Role="Expanses">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logins_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Logins" Type="Self.Logins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Logins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mywatchlists_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Mywatchlists" Type="Self.Mywatchlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mywatchlists">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mywatchlists_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="0..1" />
+          <End Role="Mywatchlists" Type="Self.Mywatchlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mywatchlists">
+              <PropertyRef Name="VideoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -189,6 +221,7 @@
           <EntitySet Name="Auths" EntityType="Self.Auths" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expanses" EntityType="Self.Expanses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mywatchlists" EntityType="Self.Mywatchlists" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salarys" EntityType="Self.Salarys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -197,13 +230,21 @@
             <End Role="Videos" EntitySet="Videos" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
-          <AssociationSet Name="FK_Auths_Users" Association="Self.FK_Auths_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Auths" EntitySet="Auths" />
-          </AssociationSet>
           <AssociationSet Name="FK_Expanses_Users" Association="Self.FK_Expanses_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Expanses" EntitySet="Expanses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logins_Users" Association="Self.FK_Logins_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Logins" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mywatchlists_Users" Association="Self.FK_Mywatchlists_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Mywatchlists" EntitySet="Mywatchlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mywatchlists_Videos" Association="Self.FK_Mywatchlists_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Mywatchlists" EntitySet="Mywatchlists" />
           </AssociationSet>
           <AssociationSet Name="FK_Packages_Users" Association="Self.FK_Packages_Users">
             <End Role="Users" EntitySet="Users" />
@@ -249,8 +290,6 @@
           <Property Name="GMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OS" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="LoginId" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Auths_Users" FromRole="Auths" ToRole="Users" />
           <NavigationProperty Name="Login" Relationship="Self.FK_Sessions_Logins" FromRole="Auths" ToRole="Logins" />
         </EntityType>
         <EntityType Name="Expans">
@@ -272,7 +311,19 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="Auths" Relationship="Self.FK_Sessions_Logins" FromRole="Logins" ToRole="Auths" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Logins_Users" FromRole="Logins" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Mywatchlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Mywatchlists_Users" FromRole="Mywatchlists" ToRole="Users" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_Mywatchlists_Videos" FromRole="Mywatchlists" ToRole="Videos" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
@@ -316,8 +367,9 @@
           <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="AccountCreateTime" Type="DateTime" Precision="3" />
           <Property Name="LoginTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Auths" Relationship="Self.FK_Auths_Users" FromRole="Users" ToRole="Auths" />
           <NavigationProperty Name="Expanses" Relationship="Self.FK_Expanses_Users" FromRole="Users" ToRole="Expanses" />
+          <NavigationProperty Name="Logins" Relationship="Self.FK_Logins_Users" FromRole="Users" ToRole="Logins" />
+          <NavigationProperty Name="Mywatchlists" Relationship="Self.FK_Mywatchlists_Users" FromRole="Users" ToRole="Mywatchlists" />
           <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_Users" FromRole="Users" ToRole="Packages" />
           <NavigationProperty Name="Salarys" Relationship="Self.FK_Salarys_Users" FromRole="Users" ToRole="Salarys" />
           <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Users" FromRole="Users" ToRole="Videos" />
@@ -334,6 +386,7 @@
           <Property Name="VideoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UploadDate" Type="DateTime" Precision="7" />
           <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Videos" FromRole="Videos" ToRole="Archives" />
+          <NavigationProperty Name="Mywatchlists" Relationship="Self.FK_Mywatchlists_Videos" FromRole="Videos" ToRole="Mywatchlists" />
           <NavigationProperty Name="User" Relationship="Self.FK_Videos_Users" FromRole="Videos" ToRole="Users" />
         </EntityType>
         <Association Name="FK_Archives_Videos">
@@ -345,18 +398,6 @@
             </Principal>
             <Dependent Role="Archives">
               <PropertyRef Name="VideoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Auths_Users">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Auths" Type="Self.Auth" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Auths">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -381,6 +422,42 @@
             </Principal>
             <Dependent Role="Expanses">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logins_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Logins" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Logins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mywatchlists_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Mywatchlists" Type="Self.Mywatchlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mywatchlists">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mywatchlists_Videos">
+          <End Role="Videos" Type="Self.Video" Multiplicity="0..1" />
+          <End Role="Mywatchlists" Type="Self.Mywatchlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mywatchlists">
+              <PropertyRef Name="VideoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -425,6 +502,7 @@
           <EntitySet Name="Auths" EntityType="Self.Auth" />
           <EntitySet Name="Expanses" EntityType="Self.Expans" />
           <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Mywatchlists" EntityType="Self.Mywatchlist" />
           <EntitySet Name="Packages" EntityType="Self.Package" />
           <EntitySet Name="Salarys" EntityType="Self.Salary" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -433,10 +511,6 @@
             <End Role="Videos" EntitySet="Videos" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
-          <AssociationSet Name="FK_Auths_Users" Association="Self.FK_Auths_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Auths" EntitySet="Auths" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sessions_Logins" Association="Self.FK_Sessions_Logins">
             <End Role="Logins" EntitySet="Logins" />
             <End Role="Auths" EntitySet="Auths" />
@@ -444,6 +518,18 @@
           <AssociationSet Name="FK_Expanses_Users" Association="Self.FK_Expanses_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Expanses" EntitySet="Expanses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logins_Users" Association="Self.FK_Logins_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Logins" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mywatchlists_Users" Association="Self.FK_Mywatchlists_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Mywatchlists" EntitySet="Mywatchlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mywatchlists_Videos" Association="Self.FK_Mywatchlists_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Mywatchlists" EntitySet="Mywatchlists" />
           </AssociationSet>
           <AssociationSet Name="FK_Packages_Users" Association="Self.FK_Packages_Users">
             <End Role="Users" EntitySet="Users" />
@@ -485,7 +571,6 @@
                 <ScalarProperty Name="GMT" ColumnName="GMT" />
                 <ScalarProperty Name="OS" ColumnName="OS" />
                 <ScalarProperty Name="LoginId" ColumnName="LoginId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -507,6 +592,16 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mywatchlists">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.Mywatchlist">
+              <MappingFragment StoreEntitySet="Mywatchlists">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -22,14 +22,20 @@ namespace DataAccessLayer
             return new PackageRepo(db);
         }
 
+        //Auth
         public static IRepository<Auth, string> AuthDataAccess()
         {
             return new AuthRepo(db);
         }
-
+        //User
         public static IRepository<User, int> UserDataAccess()
         {
             return new UserRepo(db);
+        }
+        //Salary
+        public static IRepository<Salary, int> SalaryDataAccess()
+        {
+            return new SalaryRepo(db);
         }
 
     }

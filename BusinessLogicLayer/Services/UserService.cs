@@ -45,7 +45,11 @@ namespace BusinessLogicLayer.Services
 
         public static void Update(UserModel user)
         {
-            var config = new MapperConfiguration(c => c.CreateMap<UserModel, User>());
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<User, UserModel>();
+                c.CreateMap<UserModel, User>();
+            });
             var mapper = new Mapper(config);
             var data = mapper.Map<UserModel, User>(user);
             var isUpdated = DataAccessFactory.UserDataAccess().Update(data);

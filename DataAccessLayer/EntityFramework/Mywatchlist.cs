@@ -12,19 +12,13 @@ namespace DataAccessLayer.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Auth
+    public partial class Mywatchlist
     {
         public int Id { get; set; }
-        public string Token { get; set; }
-        public string Device { get; set; }
-        public string Platfrom { get; set; }
-        public string Browser { get; set; }
-        public Nullable<System.DateTime> LoginTime { get; set; }
-        public Nullable<System.DateTime> ExpiredAt { get; set; }
-        public string GMT { get; set; }
-        public string OS { get; set; }
-        public Nullable<int> LoginId { get; set; }
+        public Nullable<int> VideoId { get; set; }
+        public Nullable<int> UserID { get; set; }
     
-        public virtual Login Login { get; set; }
+        public virtual User User { get; set; }
+        public virtual Video Video { get; set; }
     }
 }

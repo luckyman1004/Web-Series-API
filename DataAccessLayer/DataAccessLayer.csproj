@@ -67,6 +67,9 @@
     <Compile Include="EntityFramework\Login.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\Mywatchlist.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\Package.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -100,6 +103,7 @@
     <Compile Include="Repo\AuthRepo.cs" />
     <Compile Include="Repo\PackageRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\SalaryRepo.cs" />
     <Compile Include="Repo\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +120,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="EntityFramework\WebSeriesDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
