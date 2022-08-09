@@ -21,7 +21,9 @@ namespace DataAccessLayer.EntityFramework
             this.Logins = new HashSet<Login>();
             this.Mywatchlists = new HashSet<Mywatchlist>();
             this.Packages = new HashSet<Package>();
+            this.Reviews = new HashSet<Review>();
             this.Salarys = new HashSet<Salary>();
+            this.Subscriptions = new HashSet<Subscription>();
             this.Videos = new HashSet<Video>();
         }
     
@@ -47,7 +49,11 @@ namespace DataAccessLayer.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Package> Packages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Reviews { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Salary> Salarys { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Video> Videos { get; set; }
     }
