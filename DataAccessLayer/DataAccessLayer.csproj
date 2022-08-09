@@ -107,6 +107,7 @@
     <Compile Include="Interfaces\IMywatchlist.cs" />
     <Compile Include="Interfaces\IPackage.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IWatch.cs" />
     <Compile Include="Repo\AuthRepo.cs" />
     <Compile Include="Repo\MywatchlistRepo.cs" />
     <Compile Include="Repo\PackageRepo.cs" />
