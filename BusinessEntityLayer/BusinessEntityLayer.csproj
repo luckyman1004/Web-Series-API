@@ -46,6 +46,7 @@
     <Compile Include="MywatchlistModel.cs" />
     <Compile Include="PackageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaryModel.cs" />
     <Compile Include="UserAuthModel.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
