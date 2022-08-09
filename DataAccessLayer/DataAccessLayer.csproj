@@ -110,6 +110,7 @@
     <Compile Include="Interfaces\ISubscription.cs" />
     <Compile Include="Interfaces\IWatch.cs" />
     <Compile Include="Repo\AuthRepo.cs" />
+    <Compile Include="Repo\ExpansRepo.cs" />
     <Compile Include="Repo\MywatchlistRepo.cs" />
     <Compile Include="Repo\PackageRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

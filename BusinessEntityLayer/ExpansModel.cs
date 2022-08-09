@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace BusinessEntityLayer
 {
-    public class SalaryModel
+    public class ExpansModel
     {
         public int Id { get; set; }
-        public double Salary1 { get; set; }
-        public string Status { get; set; }
+        public string Name { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> UserId { get; set; }
 

@@ -17,7 +17,7 @@ namespace DataAccessLayer.EntityFramework
         public int Id { get; set; }
         public double Salary1 { get; set; }
         public string Status { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> UserId { get; set; }
     
         public virtual User User { get; set; }

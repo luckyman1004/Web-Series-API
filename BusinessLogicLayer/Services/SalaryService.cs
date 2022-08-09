@@ -17,7 +17,7 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<Salary, SalaryModel>();
-                c.CreateMap<SalaryModel, Salary>();
+                c.CreateMap<User, UserModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.SalaryDataAccess();
@@ -27,7 +27,11 @@ namespace BusinessLogicLayer.Services
 
         public static SalaryModel Get(int id)
         {
-            var config = new MapperConfiguration(c => c.CreateMap<Salary, SalaryModel>());
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Salary, SalaryModel>();
+                c.CreateMap<User, UserModel>();
+            }); 
             var mapper = new Mapper(config);
             var da = DataAccessFactory.SalaryDataAccess();
             var data = mapper.Map<SalaryModel>(da.Get(id));

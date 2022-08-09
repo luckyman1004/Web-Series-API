@@ -14,11 +14,7 @@ namespace BusinessLogicLayer.Services
     {
         public static List<UserModel> Get()
         {
-            var config = new MapperConfiguration(c =>
-            {
-                c.CreateMap<User, UserModel>();
-                c.CreateMap<UserModel, User>();
-            });
+            var config = new MapperConfiguration(c => c.CreateMap<User, UserModel>());
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();
             var data = mapper.Map<List<UserModel>>(da.Get());
