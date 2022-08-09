@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
-    public class ExpansController : ApiController
+    public class ExpenseController : ApiController
     {
         [Route("api/expenses")]
         [HttpGet]
