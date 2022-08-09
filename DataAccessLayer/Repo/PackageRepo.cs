@@ -23,11 +23,25 @@ namespace DataAccessLayer
             db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(Package e)
         {
-            var del = db.Packages.FirstOrDefault(d => d.Id == id);
-            db.Packages.Remove(del);
+            var n = db.Packages.FirstOrDefault(en => en.Id == e.Id);
+            db.Packages.Remove(n);
+            db.SaveChanges();
         }
+
+        //public void Delete(int id)
+        //{
+        //    var del = db.Packages.FirstOrDefault(d => d.Id == id);
+        //    db.Packages.Remove(del);
+        //    db.SaveChanges();
+        //}
+        //public bool Delete(int id)
+        //{
+        //    var obj = Get(id);
+        //    db.Packages.Remove(obj);
+        //    return db.SaveChanges() > 0;
+        //}
 
         public List<Package> Get()
         {

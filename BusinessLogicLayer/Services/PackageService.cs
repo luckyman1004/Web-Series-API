@@ -43,5 +43,29 @@ namespace BusinessLogicLayer
             var da = DataAccessFactory.PackageDataAccess();
             da.Create(data);
         }
+
+        public static void Update(PackageModel p)
+        {
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<PackageModel, Package>();
+
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Package>(p);
+            DataAccessFactory.PackageDataAccess().Update(data);
+        }
+
+        public static void Delete(PackageModel p)
+        {
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<PackageModel, Package>();
+
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Package>(p);
+            DataAccessFactory.PackageDataAccess().Delete(data);
+        }
     }
 }

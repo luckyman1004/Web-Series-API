@@ -20,12 +20,22 @@ namespace DataAccessLayer.Repo
 
         public void Create(Mywatchlist obj)
         {
-            throw new NotImplementedException();
+            db.Mywatchlists.Add(obj);
+            db.SaveChanges();
         }
 
-        public void Delete(int id)
+        //public bool Delete(int id)
+        //{
+        //    var obj = Get(id);
+        //    db.Mywatchlists.Remove(obj);
+        //    return db.SaveChanges() > 0;
+        //}
+
+        public void Delete(Mywatchlist e)
         {
-            var del = db.Mywatchlists.FirstOrDefault(d => d.Id == id);
+            var n = db.Mywatchlists.FirstOrDefault(en => en.Id == e.Id);
+            db.Mywatchlists.Remove(n);
+            db.SaveChanges();
         }
 
         public List<Mywatchlist> Get() 
@@ -40,7 +50,9 @@ namespace DataAccessLayer.Repo
 
         public void Update(Mywatchlist obj)
         {
-            throw new NotImplementedException();
+            var edit = db.Mywatchlists.FirstOrDefault(mywatchlist => mywatchlist.Id == obj.Id);
+            db.Entry(edit).CurrentValues.SetValues(obj);
+            db.SaveChanges();
         }
     }
 }
