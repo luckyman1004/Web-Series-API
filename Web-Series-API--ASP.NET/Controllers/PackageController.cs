@@ -33,5 +33,18 @@ namespace Web_Series_API__ASP.NET.Controllers
             PackageService.Create(p);    
             return Request.CreateResponse(HttpStatusCode.Created, "Data Insert");
         }
+
+        [Route("api/package/updatepackage")]
+        [HttpPost]
+        public void UpdatePackage(PackageModel n)
+        {
+            PackageService.Update(n);
+        }
+        [Route("api/package/Deletepackage")]
+        [HttpPost]
+        public void DeletePackage(PackageModel n)
+        {
+            PackageService.Delete(n);
+        }
     }
 }
