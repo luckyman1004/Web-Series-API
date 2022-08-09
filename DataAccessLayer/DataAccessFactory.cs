@@ -45,6 +45,11 @@ namespace DataAccessLayer
         {
             return new SalaryRepo(db);
         }
+        //Expans
+        public static IRepository<Expans, int> ExpansDataAccess()
+        {
+            return new ExpansRepo(db);
+        }
 
     }
 }

@@ -49,7 +49,6 @@ namespace BusinessLogicLayer
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<PackageModel, Package>();
-
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<Package>(p);
