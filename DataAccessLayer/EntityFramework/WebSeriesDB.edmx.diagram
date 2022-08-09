@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="69a8623800cc4165b2fa1a98205825fc" Name="Diagram1">
+      <Diagram DiagramId="69a8623800cc4165b2fa1a98205825fc" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="WebSeriesDBModel.Archive" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Auth" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Expans" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
@@ -23,6 +23,12 @@
         <AssociationConnector Association="WebSeriesDBModel.FK_Packages_Users" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Salarys_Users" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Videos_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Subscription" Width="1.5" PointX="5.25" PointY="11.375" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.UserReview" Width="1.5" PointX="8.25" PointY="14.5" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_Subscriptions_Packages" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_Subscriptions_Users" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_UserReviews_Users" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_UserReviews_Videos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
