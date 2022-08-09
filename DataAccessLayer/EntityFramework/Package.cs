@@ -14,6 +14,12 @@ namespace DataAccessLayer.EntityFramework
     
     public partial class Package
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Package()
+        {
+            this.Subscriptions = new HashSet<Subscription>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<double> Price { get; set; }
@@ -25,5 +31,7 @@ namespace DataAccessLayer.EntityFramework
         public Nullable<int> UserId { get; set; }
     
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
     }
 }

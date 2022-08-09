@@ -4,16 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="265b19b641a74003b7c893099f7ddf91" Name="Diagram1">
-        <EntityTypeShape EntityType="WebSeriesDBModel.Archive" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Auth" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Expans" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Login" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Mywatchlist" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Package" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Salary" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.User" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Video" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+      <Diagram DiagramId="0bc208ff4d934991ab92b0ee59153f9c" Name="Diagram1">
+        <EntityTypeShape EntityType="WebSeriesDBModel.Archive" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Auth" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Expans" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Login" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Mywatchlist" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Package" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Review" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Salary" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Subscription" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.User" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Video" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Archives_Videos" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Sessions_Logins" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Expanses_Users" ManuallyRouted="false" />
@@ -21,7 +23,11 @@
         <AssociationConnector Association="WebSeriesDBModel.FK_Mywatchlists_Users" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Mywatchlists_Videos" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Packages_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_Subscriptions_Packages" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_UserReviews_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_UserReviews_Videos" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Salarys_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_Subscriptions_Users" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Videos_Users" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
