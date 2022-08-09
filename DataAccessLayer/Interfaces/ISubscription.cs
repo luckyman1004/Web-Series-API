@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-        public interface ISubscription<T, ID>
+    public interface ISubscription<T, ID>
     {
         List<T> Get();
         T Get(ID id);
