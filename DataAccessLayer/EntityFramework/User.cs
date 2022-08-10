@@ -18,14 +18,15 @@ namespace DataAccessLayer.EntityFramework
         public User()
         {
             this.Expanses = new HashSet<Expans>();
+            this.FeaturedVideos = new HashSet<FeaturedVideo>();
             this.Logins = new HashSet<Login>();
             this.Mywatchlists = new HashSet<Mywatchlist>();
             this.Packages = new HashSet<Package>();
             this.Reviews = new HashSet<Review>();
             this.Salarys = new HashSet<Salary>();
             this.Subscriptions = new HashSet<Subscription>();
-            this.Videos = new HashSet<Video>();
             this.UserRequests = new HashSet<UserRequest>();
+            this.Videos = new HashSet<Video>();
         }
     
         public int Id { get; set; }
@@ -44,6 +45,8 @@ namespace DataAccessLayer.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expans> Expanses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FeaturedVideo> FeaturedVideos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Login> Logins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mywatchlist> Mywatchlists { get; set; }
@@ -56,9 +59,8 @@ namespace DataAccessLayer.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscription> Subscriptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Video> Videos { get; set; }
-        public virtual FeaturedVideo FeaturedVideo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRequest> UserRequests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Video> Videos { get; set; }
     }
 }

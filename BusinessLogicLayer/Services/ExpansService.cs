@@ -51,8 +51,8 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<ExpansModel, Expans>();
+                c.CreateMap<User, UserModel>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<ExpansModel, Expans>(expans);

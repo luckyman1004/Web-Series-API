@@ -44,8 +44,8 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<FeaturedVideoModel, FeaturedVideo>();
-               // c.CreateMap<VideoModel, Video>();
-                //c.CreateMap<UserModel, User>();
+                c.CreateMap<VideoModel, Video>();
+                c.CreateMap<UserModel, User>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<FeaturedVideo>(fvid);
@@ -58,7 +58,7 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<FeaturedVideoModel, FeaturedVideo>();
-                 c.CreateMap<VideoModel, Video>();
+                c.CreateMap<VideoModel, Video>();
                 c.CreateMap<UserModel, User>();
             });
             var mapper = new Mapper(config);

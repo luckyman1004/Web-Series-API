@@ -41,8 +41,9 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
+                c.CreateMap<Category, CategoryModel>();
                 c.CreateMap<CategoryModel, Category>();
-                c.CreateMap<VideoModel, Video>();
+                //c.CreateMap<VideoModel, Video>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<Category>(cat);
@@ -54,8 +55,8 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<Category, CategoryModel>();
                 c.CreateMap<CategoryModel, Category>();
+                c.CreateMap<VideoModel, Video>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<CategoryModel, Category>(cat);
