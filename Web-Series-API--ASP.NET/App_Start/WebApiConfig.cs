@@ -19,6 +19,7 @@ namespace Web_Series_API__ASP.NET
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.EnableCors();
         }
     }
 }
