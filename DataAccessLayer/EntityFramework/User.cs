@@ -25,6 +25,7 @@ namespace DataAccessLayer.EntityFramework
             this.Salarys = new HashSet<Salary>();
             this.Subscriptions = new HashSet<Subscription>();
             this.Videos = new HashSet<Video>();
+            this.UserRequests = new HashSet<UserRequest>();
         }
     
         public int Id { get; set; }
@@ -56,5 +57,8 @@ namespace DataAccessLayer.EntityFramework
         public virtual ICollection<Subscription> Subscriptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Video> Videos { get; set; }
+        public virtual FeaturedVideo FeaturedVideo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserRequest> UserRequests { get; set; }
     }
 }

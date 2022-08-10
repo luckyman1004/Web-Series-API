@@ -27,6 +27,14 @@
           <Property Name="OS" Type="nvarchar" MaxLength="30" />
           <Property Name="LoginId" Type="int" />
         </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VideoId" Type="int" />
+        </EntityType>
         <EntityType Name="Expanses">
           <Key>
             <PropertyRef Name="Id" />
@@ -34,6 +42,18 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="datetime" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="FeaturedVideos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="VideoId" Type="int" />
           <Property Name="UserId" Type="int" />
         </EntityType>
         <EntityType Name="Logins">
@@ -97,6 +117,16 @@
           <Property Name="PackageId" Type="int" />
           <Property Name="UserId" Type="int" />
         </EntityType>
+        <EntityType Name="UserRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RequestTitle" Type="varchar" MaxLength="250" />
+          <Property Name="RequestCategorie" Type="varchar" MaxLength="50" />
+          <Property Name="ImdbLink" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -119,7 +149,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="VideoTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="VideoTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="varchar" MaxLength="7" />
           <Property Name="UserId" Type="int" />
@@ -138,6 +168,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Categories_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Expanses_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Expanses" Type="Self.Expanses" Multiplicity="*" />
@@ -147,6 +189,30 @@
             </Principal>
             <Dependent Role="Expanses">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeaturedVideos_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="FeaturedVideos" Type="Self.FeaturedVideos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeaturedVideos">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeaturedVideos_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="FeaturedVideos" Type="Self.FeaturedVideos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeaturedVideos">
+              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -246,6 +312,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserRequests_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserRequests" Type="Self.UserRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRequests">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserReviews_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
@@ -285,22 +363,37 @@
         <EntityContainer Name="WebSeriesDBModelStoreContainer">
           <EntitySet Name="Archives" EntityType="Self.Archives" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Auths" EntityType="Self.Auths" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expanses" EntityType="Self.Expanses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeaturedVideos" EntityType="Self.FeaturedVideos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mywatchlists" EntityType="Self.Mywatchlists" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salarys" EntityType="Self.Salarys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subscriptions" EntityType="Self.Subscriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRequests" EntityType="Self.UserRequests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Archives_Videos" Association="Self.FK_Archives_Videos">
             <End Role="Videos" EntitySet="Videos" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
+          <AssociationSet Name="FK_Categories_Videos" Association="Self.FK_Categories_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
           <AssociationSet Name="FK_Expanses_Users" Association="Self.FK_Expanses_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Expanses" EntitySet="Expanses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeaturedVideos_Users" Association="Self.FK_FeaturedVideos_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FeaturedVideos" EntitySet="FeaturedVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeaturedVideos_Videos" Association="Self.FK_FeaturedVideos_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="FeaturedVideos" EntitySet="FeaturedVideos" />
           </AssociationSet>
           <AssociationSet Name="FK_Logins_Users" Association="Self.FK_Logins_Users">
             <End Role="Users" EntitySet="Users" />
@@ -333,6 +426,10 @@
           <AssociationSet Name="FK_Subscriptions_Users" Association="Self.FK_Subscriptions_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Subscriptions" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRequests_Users" Association="Self.FK_UserRequests_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRequests" EntitySet="UserRequests" />
           </AssociationSet>
           <AssociationSet Name="FK_UserReviews_Users" Association="Self.FK_UserReviews_Users">
             <End Role="Users" EntitySet="Users" />
@@ -481,13 +578,15 @@
           <NavigationProperty Name="Salarys" Relationship="Self.FK_Salarys_Users" FromRole="Users" ToRole="Salarys" />
           <NavigationProperty Name="Subscriptions" Relationship="Self.FK_Subscriptions_Users" FromRole="Users" ToRole="Subscriptions" />
           <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Users" FromRole="Users" ToRole="Videos" />
+          <NavigationProperty Name="FeaturedVideo" Relationship="WebSeriesDBModel.FK_FeaturedVideos_Users" FromRole="User" ToRole="FeaturedVideo" />
+          <NavigationProperty Name="UserRequests" Relationship="WebSeriesDBModel.FK_UserRequests_Users" FromRole="User" ToRole="UserRequest" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VideoTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VideoTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="UserId" Type="Int32" />
@@ -497,6 +596,8 @@
           <NavigationProperty Name="Mywatchlists" Relationship="Self.FK_Mywatchlists_Videos" FromRole="Videos" ToRole="Mywatchlists" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_UserReviews_Videos" FromRole="Videos" ToRole="Reviews" />
           <NavigationProperty Name="User" Relationship="Self.FK_Videos_Users" FromRole="Videos" ToRole="Users" />
+          <NavigationProperty Name="Category" Relationship="WebSeriesDBModel.FK_Categories_Videos" FromRole="Video" ToRole="Category" />
+          <NavigationProperty Name="FeaturedVideo" Relationship="WebSeriesDBModel.FK_FeaturedVideos_Videos" FromRole="Video" ToRole="FeaturedVideo" />
         </EntityType>
         <Association Name="FK_Archives_Videos">
           <End Role="Videos" Type="Self.Video" Multiplicity="0..1" />
@@ -718,7 +819,108 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Videos" EntitySet="Videos" />
           </AssociationSet>
+          <EntitySet Name="Categories" EntityType="WebSeriesDBModel.Category" />
+          <EntitySet Name="FeaturedVideos" EntityType="WebSeriesDBModel.FeaturedVideo" />
+          <EntitySet Name="UserRequests" EntityType="WebSeriesDBModel.UserRequest" />
+          <AssociationSet Name="FK_Categories_Videos" Association="WebSeriesDBModel.FK_Categories_Videos">
+            <End Role="Video" EntitySet="Videos" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeaturedVideos_Users" Association="WebSeriesDBModel.FK_FeaturedVideos_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="FeaturedVideo" EntitySet="FeaturedVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeaturedVideos_Videos" Association="WebSeriesDBModel.FK_FeaturedVideos_Videos">
+            <End Role="Video" EntitySet="Videos" />
+            <End Role="FeaturedVideo" EntitySet="FeaturedVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRequests_Users" Association="WebSeriesDBModel.FK_UserRequests_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserRequest" EntitySet="UserRequests" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VideoId" Type="Int32" />
+          <NavigationProperty Name="Video" Relationship="WebSeriesDBModel.FK_Categories_Videos" FromRole="Category" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="FeaturedVideo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="WebSeriesDBModel.FK_FeaturedVideos_Users" FromRole="FeaturedVideo" ToRole="User" />
+          <NavigationProperty Name="Video" Relationship="WebSeriesDBModel.FK_FeaturedVideos_Videos" FromRole="FeaturedVideo" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="UserRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RequestTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="RequestCategorie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImdbLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="WebSeriesDBModel.FK_UserRequests_Users" FromRole="UserRequest" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Categories_Videos">
+          <End Type="WebSeriesDBModel.Video" Role="Video" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.Category" Role="Category" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeaturedVideos_Users">
+          <End Type="WebSeriesDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.FeaturedVideo" Role="FeaturedVideo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeaturedVideo">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeaturedVideos_Videos">
+          <End Type="WebSeriesDBModel.Video" Role="Video" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.FeaturedVideo" Role="FeaturedVideo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeaturedVideo">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRequests_Users">
+          <End Type="WebSeriesDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="WebSeriesDBModel.UserRequest" Role="UserRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRequest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -854,6 +1056,39 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
                 <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeaturedVideos">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.FeaturedVideo">
+              <MappingFragment StoreEntitySet="FeaturedVideos">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRequests">
+            <EntityTypeMapping TypeName="WebSeriesDBModel.UserRequest">
+              <MappingFragment StoreEntitySet="UserRequests">
+                <ScalarProperty Name="ImdbLink" ColumnName="ImdbLink" />
+                <ScalarProperty Name="RequestCategorie" ColumnName="RequestCategorie" />
+                <ScalarProperty Name="RequestTitle" ColumnName="RequestTitle" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
