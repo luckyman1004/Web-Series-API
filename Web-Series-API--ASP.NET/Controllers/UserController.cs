@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
     public class UserController : ApiController
     {
+        [EnableCors("*", "*", "*")]
         [Route("api/users")]
         [HttpGet]
         public HttpResponseMessage Get()
@@ -72,7 +74,6 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error updating user", e);
             }
         }
-
         [Route("api/user/remove/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(int id)
