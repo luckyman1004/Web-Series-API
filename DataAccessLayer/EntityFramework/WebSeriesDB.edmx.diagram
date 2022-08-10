@@ -29,6 +29,13 @@
         <AssociationConnector Association="WebSeriesDBModel.FK_Salarys_Users" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Subscriptions_Users" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Videos_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Category" Width="1.5" PointX="5.25" PointY="28.5" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.FeaturedVideo" Width="1.5" PointX="8.25" PointY="17.875" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.UserRequest" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_Categories_Videos" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_FeaturedVideos_Users" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_FeaturedVideos_Videos" />
+        <AssociationConnector Association="WebSeriesDBModel.FK_UserRequests_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

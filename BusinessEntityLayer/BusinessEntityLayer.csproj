@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthModel.cs" />
+    <Compile Include="CategoryModel.cs" />
     <Compile Include="ExpansModel.cs" />
+    <Compile Include="FeaturedVideoModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="MywatchlistModel.cs" />
     <Compile Include="PackageModel.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="SalaryModel.cs" />
     <Compile Include="UserAuthModel.cs" />
     <Compile Include="UserModel.cs" />
+    <Compile Include="VideoModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

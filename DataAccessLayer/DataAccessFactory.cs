@@ -50,6 +50,17 @@ namespace DataAccessLayer
         {
             return new ExpansRepo(db);
         }
-
+        public static IRepository<Category, int> CategoryDataAccess()
+        {
+            return new CategoryRepo(db);
+        }
+        public static IRepository<Video, int> VideoDataAccess()
+        {
+            return new VideoRepo(db);
+        }
+        public static IRepository<FeaturedVideo, int> FeaturedVideoDataAccess()
+        {
+            return new FeaturedVideoRepo(db);
+        }
     }
 }
