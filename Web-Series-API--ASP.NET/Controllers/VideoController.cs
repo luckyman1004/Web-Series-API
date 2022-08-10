@@ -25,7 +25,7 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error no Videos found", e);
             }
         }
-        [Route("api/videos/{id}")]
+        [Route("api/video/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
@@ -40,7 +40,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [Route("api/videos/create")]
+        [Route("api/video/create")]
         [HttpPost]
         public HttpResponseMessage Post(VideoModel video)
         {
@@ -56,7 +56,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [Route("api/videos/edit")]
+        [Route("api/video/edit")]
         [HttpPut]
         public HttpResponseMessage Put(VideoModel video)
         {

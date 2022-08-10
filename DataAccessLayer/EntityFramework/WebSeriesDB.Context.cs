@@ -27,17 +27,17 @@ namespace DataAccessLayer.EntityFramework
     
         public virtual DbSet<Archive> Archives { get; set; }
         public virtual DbSet<Auth> Auths { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Expans> Expanses { get; set; }
+        public virtual DbSet<FeaturedVideo> FeaturedVideos { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Mywatchlist> Mywatchlists { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Salary> Salarys { get; set; }
         public virtual DbSet<Subscription> Subscriptions { get; set; }
+        public virtual DbSet<UserRequest> UserRequests { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<FeaturedVideo> FeaturedVideos { get; set; }
-        public virtual DbSet<UserRequest> UserRequests { get; set; }
     }
 }

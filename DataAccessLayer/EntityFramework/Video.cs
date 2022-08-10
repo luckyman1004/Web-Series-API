@@ -18,6 +18,8 @@ namespace DataAccessLayer.EntityFramework
         public Video()
         {
             this.Archives = new HashSet<Archive>();
+            this.Categories = new HashSet<Category>();
+            this.FeaturedVideos = new HashSet<FeaturedVideo>();
             this.Mywatchlists = new HashSet<Mywatchlist>();
             this.Reviews = new HashSet<Review>();
         }
@@ -33,11 +35,13 @@ namespace DataAccessLayer.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Archive> Archives { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Category> Categories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FeaturedVideo> FeaturedVideos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mywatchlist> Mywatchlists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual User User { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual FeaturedVideo FeaturedVideo { get; set; }
     }
 }
