@@ -74,7 +74,6 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error updating user", e);
             }
         }
-
         [Route("api/user/remove/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(int id)
