@@ -93,6 +93,7 @@
     <Compile Include="Controllers\MywatchlistController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\SalaryController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
