@@ -26,19 +26,14 @@ namespace Web_Series_API__ASP.NET.Controllers
             return Request.CreateResponse(HttpStatusCode.Created, "Data Insert");
         }
 
-        //[Route("api/admin/CreateManager/")]
-        //[HttpPost]
-        //public void AddManager(ManagerModel n)
-        //{
-        //    ManagerService.Add(n);
-        //}
-        [Route("api/mywatchlist/EditManager/")]
+
+        [Route("api/mywatchlist/Update")]
         [HttpPost]
         public void UpdateMywatchlist(MywatchlistModel n)
         {
             MywatchlistService.Update(n);
         }
-        [Route("api/mywatchlist/DeleteMywatchlist/")]
+        [Route("api/mywatchlist/Delete")]
         [HttpPost]
         public void DeleteMywatchlist(MywatchlistModel n)
         {
