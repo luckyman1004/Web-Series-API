@@ -18,7 +18,6 @@ namespace DataAccessLayer.Repo
         public bool Create(User obj)
         {
             if (obj == null) return false;
-            obj.Role = "User";
             db.Users.Add(obj);
             return db.SaveChanges() != 0;
         }

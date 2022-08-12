@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a979a824a87b4202b2e97b5d55549048" Name="Diagram1">
+      <Diagram DiagramId="ba162fb9e39843e5b8d07f384e2c3ae2" Name="Diagram1">
         <EntityTypeShape EntityType="WebSeriesDBModel.Archive" Width="1.5" PointX="5.25" PointY="32.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Auth" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Category" Width="1.5" PointX="5.25" PointY="35" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Expans" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.FeaturedVideo" Width="1.5" PointX="5.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.FeaturedVideo" Width="1.5" PointX="5.25" PointY="24.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Login" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Mywatchlist" Width="1.5" PointX="8.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Mywatchlist" Width="1.5" PointX="8.25" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Package" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Review" Width="1.5" PointX="8.25" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Review" Width="1.5" PointX="8.25" PointY="27.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Salary" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.Subscription" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.Subscription" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.UserRequest" Width="1.5" PointX="3" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.User" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.User" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Video" Width="1.5" PointX="3" PointY="33" IsExpanded="true" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Archives_Videos" ManuallyRouted="false" />
         <AssociationConnector Association="WebSeriesDBModel.FK_Sessions_Logins" ManuallyRouted="false" />
