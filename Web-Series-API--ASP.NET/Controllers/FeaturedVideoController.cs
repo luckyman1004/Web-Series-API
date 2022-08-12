@@ -25,7 +25,7 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error no Featured Videos found", e);
             }
         }
-        [Route("api/featuredvideos/{id}")]
+        [Route("api/featuredvideo/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
@@ -40,7 +40,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [Route("api/featuredvideos/create")]
+        [Route("api/featuredvideo/create")]
         [HttpPost]
         public HttpResponseMessage Post(FeaturedVideoModel fvid)
         {
@@ -56,7 +56,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [Route("api/featuredvideos/edit")]
+        [Route("api/featuredvideo/edit")]
         [HttpPut]
         public HttpResponseMessage Put(FeaturedVideoModel fvid)
         {
@@ -72,7 +72,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [Route("api/featuredvideos/remove/{id}")]
+        [Route("api/featuredvideo/remove/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(int id)
         {

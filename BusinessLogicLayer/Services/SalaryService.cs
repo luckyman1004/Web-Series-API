@@ -51,8 +51,8 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<Salary, SalaryModel>();
                 c.CreateMap<SalaryModel, Salary>();
+                c.CreateMap<UserModel, User>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<SalaryModel, Salary>(salary);

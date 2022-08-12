@@ -43,7 +43,6 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<User, UserModel>();
                 c.CreateMap<UserModel, User>();
             });
             var mapper = new Mapper(config);
