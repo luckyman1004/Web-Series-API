@@ -19,7 +19,6 @@ namespace DataAccessLayer.EntityFramework
         {
             this.Expanses = new HashSet<Expans>();
             this.FeaturedVideos = new HashSet<FeaturedVideo>();
-            this.Logins = new HashSet<Login>();
             this.Mywatchlists = new HashSet<Mywatchlist>();
             this.Packages = new HashSet<Package>();
             this.Reviews = new HashSet<Review>();
@@ -37,13 +36,13 @@ namespace DataAccessLayer.EntityFramework
         public string Status { get; set; }
         public Nullable<System.DateTime> AccountCreateTime { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
+        public Nullable<int> LoginId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expans> Expanses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FeaturedVideo> FeaturedVideos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Login> Logins { get; set; }
+        public virtual Login Login { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mywatchlist> Mywatchlists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -18,6 +18,7 @@ namespace DataAccessLayer.EntityFramework
         public Login()
         {
             this.Auths = new HashSet<Auth>();
+            this.Users = new HashSet<User>();
         }
     
         public int Id { get; set; }
@@ -25,10 +26,10 @@ namespace DataAccessLayer.EntityFramework
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-        public Nullable<int> UserId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Auth> Auths { get; set; }
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }
