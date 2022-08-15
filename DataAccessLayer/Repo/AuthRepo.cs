@@ -8,12 +8,22 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repo
 {
-    public class AuthRepo : IRepository<Auth, string>
+    public class AuthRepo : IAuth
     {
         WebSeriesDBEntities db;
         public AuthRepo(WebSeriesDBEntities db)
         {
             this.db = db;
+        }
+
+        public bool Authenticate(Auth obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Auth Authenticate(Login login)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Create(Auth obj)
@@ -29,6 +39,11 @@ namespace DataAccessLayer.Repo
             return db.SaveChanges() != 0;
         }
 
+        public bool Delete(Auth id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Auth> Get()
         {
             return db.Auths.ToList();
@@ -37,6 +52,21 @@ namespace DataAccessLayer.Repo
         public Auth Get(string id)
         {
             return db.Auths.FirstOrDefault(tok => tok.Token.Equals((id)));
+        }
+
+        public bool isAuthenticated(Auth obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool isAuthenticated(string obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Logout(string obj)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Update(Auth obj)

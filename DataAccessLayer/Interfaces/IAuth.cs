@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IAuth<T, ID>
+    public interface IAuth
     {
-        Auth Authenticate(User user);
+        Auth Authenticate(Login login);
         bool isAuthenticated(string obj);
         bool Logout(string obj);
 

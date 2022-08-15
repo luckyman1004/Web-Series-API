@@ -20,5 +20,8 @@ namespace BusinessEntityLayer
         public string Status { get; set; }
         public Nullable<System.DateTime> AccountCreateTime { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
+        public Nullable<int> LoginId { get; set; }
+
+        public virtual LoginModel Login { get; set; }
     }
 }
