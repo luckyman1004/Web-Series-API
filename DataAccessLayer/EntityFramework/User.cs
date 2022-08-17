@@ -18,44 +18,29 @@ namespace DataAccessLayer.EntityFramework
         public User()
         {
             this.Expanses = new HashSet<Expans>();
-            this.FeaturedVideos = new HashSet<FeaturedVideo>();
-            this.Logins = new HashSet<Login>();
             this.Mywatchlists = new HashSet<Mywatchlist>();
-            this.Packages = new HashSet<Package>();
-            this.Reviews = new HashSet<Review>();
-            this.Salarys = new HashSet<Salary>();
             this.Subscriptions = new HashSet<Subscription>();
             this.UserRequests = new HashSet<UserRequest>();
             this.Videos = new HashSet<Video>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
         public string Phone { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
-        public string Role { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string Status { get; set; }
         public Nullable<System.DateTime> AccountCreateTime { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
+        public Nullable<int> LoginId { get; set; }
+        public Nullable<int> SalaryId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expans> Expanses { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FeaturedVideo> FeaturedVideos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Login> Logins { get; set; }
+        public virtual Login Login { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mywatchlist> Mywatchlists { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Package> Packages { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Review> Reviews { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Salary> Salarys { get; set; }
+        public virtual Salary Salary { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscription> Subscriptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

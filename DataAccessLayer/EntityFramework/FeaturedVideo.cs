@@ -20,9 +20,7 @@ namespace DataAccessLayer.EntityFramework
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ToDate { get; set; }
         public Nullable<int> VideoId { get; set; }
-        public Nullable<int> UserId { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Video Video { get; set; }
     }
 }

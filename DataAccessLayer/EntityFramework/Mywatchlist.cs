@@ -15,10 +15,8 @@ namespace DataAccessLayer.EntityFramework
     public partial class Mywatchlist
     {
         public int Id { get; set; }
-        public Nullable<int> VideoId { get; set; }
         public Nullable<int> UserID { get; set; }
     
         public virtual User User { get; set; }
-        public virtual Video Video { get; set; }
     }
 }

@@ -16,11 +16,7 @@ namespace DataAccessLayer.EntityFramework
     {
         public int Id { get; set; }
         public int VideoId { get; set; }
-        public int UserId { get; set; }
         public string Comment { get; set; }
         public Nullable<double> Rating { get; set; }
-    
-        public virtual User User { get; set; }
-        public virtual Video Video { get; set; }
     }
 }
