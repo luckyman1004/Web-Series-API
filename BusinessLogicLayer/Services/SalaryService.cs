@@ -18,19 +18,19 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<User, UserModel>();
                 c.CreateMap<Login, LoginModel>();
-                c.CreateMap<Expans, ExpansModel>();
+                //c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<Salary, SalaryModel>();
-                c.CreateMap<Subscription, SubscriptionModel>();
-                c.CreateMap<Package, PackageModel>();
-                c.CreateMap<Video, VideoModel>();
-                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-                c.CreateMap<Mywatchlist, MywatchlistModel>();
+                //c.CreateMap<Subscription, SubscriptionModel>();
+                //c.CreateMap<Package, PackageModel>();
+                //c.CreateMap<Video, VideoModel>();
+                //c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                //c.CreateMap<Mywatchlist, MywatchlistModel>();
                 //c.CreateMap<User, SalaryModel>();
-                c.CreateMap<Salary, UserModel>();
+                //c.CreateMap<Salary, UserModel>();
 
             });
             var mapper = new Mapper(config);
-            var da = DataAccessFactory.UserDataAccess();
+            var da = DataAccessFactory.SalaryDataAccess();
             var data = mapper.Map<List<SalaryModel>>(da.Get());
             return data;
         }
@@ -41,6 +41,7 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<Salary, SalaryModel>();
                 c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
             }); 
             var mapper = new Mapper(config);
             var da = DataAccessFactory.SalaryDataAccess();

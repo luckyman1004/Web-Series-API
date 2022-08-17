@@ -19,6 +19,7 @@ namespace BusinessLogicLayer.Services
                 c.CreateMap<Category, CategoryModel>();
                 c.CreateMap<Video, VideoModel>();
                 c.CreateMap<User, UserModel>();
+               
                 c.CreateMap<Login, LoginModel>();
             });
             var mapper = new Mapper(config);

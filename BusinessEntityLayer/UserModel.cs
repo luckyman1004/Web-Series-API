@@ -21,20 +21,20 @@ namespace BusinessEntityLayer
 
         public Nullable<int> SalaryId { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<ExpansModel> Expanses { get; set; }
+       
+        //[JsonIgnore]
+        //public virtual ICollection<ExpansModel> Expanses { get; set; }
         public virtual LoginModel Login { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MywatchlistModel> Mywatchlists { get; set; }
+        
+        //[JsonIgnore]
+        //public virtual ICollection<MywatchlistModel> Mywatchlists { get; set; }
         public virtual SalaryModel Salary { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<SubscriptionModel> Subscriptions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRequestModel> UserRequests { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<VideoModel> Videos { get; set; }
+       
+        //[JsonIgnore]
+        //public virtual ICollection<SubscriptionModel> Subscriptions { get; set; }
+        
+       
+        //[JsonIgnore]
+        //public virtual ICollection<VideoModel> Videos { get; set; }
     }
 }

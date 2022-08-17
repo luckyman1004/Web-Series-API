@@ -19,13 +19,14 @@ namespace BusinessEntityLayer
         public string VideoPath { get; set; }
         public Nullable<System.DateTime> UploadDate { get; set; }
         public Nullable<int> CategoryId { get; set; }
+        public string Name { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ArchiveModel> Archives { get; set; }
+
+        //public virtual ICollection<ArchiveModel> Archives { get; set; }
         public virtual CategoryModel Category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<FeaturedVideoModel> FeaturedVideos { get; set; }
+        
+        //[JsonIgnore]
+        //public virtual ICollection<FeaturedVideoModel> FeaturedVideos { get; set; }
         public virtual UserModel User { get; set; }
     }
 }
