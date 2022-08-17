@@ -13,7 +13,9 @@ namespace BusinessEntityLayer
         public string Name { get; set; }
         public Nullable<int> VideoId { get; set; }
 
-        //public virtual ICollection<VideoModel> Videos { get; set; }
+        public virtual ICollection<VideoModel> Videos { get; set; }
+        //public virtual ICollection<UserModel> Users { get; set; }
+        //public virtual UserModel User { get; set; }
     }
 }
 

@@ -18,13 +18,13 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<User, UserModel>();
                 c.CreateMap<Login, LoginModel>();
-                c.CreateMap<Expans, ExpansModel>();
+                //c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<Salary, SalaryModel>();
-                c.CreateMap<Subscription, SubscriptionModel>();
-                c.CreateMap<Package, PackageModel>();
-                c.CreateMap<Video, VideoModel>();
-                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-                c.CreateMap<Mywatchlist, MywatchlistModel>();
+                //c.CreateMap<Subscription, SubscriptionModel>();
+                //c.CreateMap<Package, PackageModel>();
+                //c.CreateMap<Video, VideoModel>();
+                //c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                //c.CreateMap<Mywatchlist, MywatchlistModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();
@@ -38,13 +38,13 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<User, UserModel>();
                 c.CreateMap<Login, LoginModel>();
-                c.CreateMap<Expans, ExpansModel>();
+                //c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<Salary, SalaryModel>();
-                c.CreateMap<Subscription, SubscriptionModel>();
-                c.CreateMap<Package, PackageModel>();
-                c.CreateMap<Video, VideoModel>();
-                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-                c.CreateMap<Mywatchlist, MywatchlistModel>();
+                //c.CreateMap<Subscription, SubscriptionModel>();
+                //c.CreateMap<Package, PackageModel>();
+                //c.CreateMap<Video, VideoModel>();
+                //c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                //c.CreateMap<Mywatchlist, MywatchlistModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();

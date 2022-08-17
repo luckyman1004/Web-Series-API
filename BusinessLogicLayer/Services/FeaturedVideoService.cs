@@ -14,14 +14,13 @@ namespace BusinessLogicLayer.Services
     {
         public static List<FeaturedVideoModel> Get()
         {
-
-           
-
             var config = new MapperConfiguration(c =>
             {
-                //c.CreateMap<FeaturedVideoModel, FeaturedVideo>();
                 c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                c.CreateMap<Video, VideoModel>();
                 c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
+                c.CreateMap<Salary, SalaryModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.FeaturedVideoDataAccess();
@@ -34,7 +33,9 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
                 c.CreateMap<Video, VideoModel>();
-                c.CreateMap<User, UserModel>();
+                //c.CreateMap<User, UserModel>();
+                //c.CreateMap<Login, LoginModel>();
+                //c.CreateMap<Salary, SalaryModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.FeaturedVideoDataAccess();
@@ -48,7 +49,6 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<FeaturedVideoModel, FeaturedVideo>();
                 c.CreateMap<VideoModel, Video>();
-                c.CreateMap<UserModel, User>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<FeaturedVideo>(fvid);
@@ -62,7 +62,6 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<FeaturedVideoModel, FeaturedVideo>();
                 c.CreateMap<VideoModel, Video>();
-                c.CreateMap<UserModel, User>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<FeaturedVideoModel, FeaturedVideo>(fvid);
