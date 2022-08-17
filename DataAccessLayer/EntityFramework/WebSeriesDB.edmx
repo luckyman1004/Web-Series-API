@@ -11,6 +11,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VideoId" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Auths">
           <Key>
@@ -49,7 +50,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Path" Type="nvarchar" MaxLength="1000" />
           <Property Name="FromDate" Type="datetime" />
           <Property Name="ToDate" Type="datetime" />
           <Property Name="VideoId" Type="int" />
@@ -367,6 +367,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VideoId" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Video" Relationship="Self.FK_Archives_Videos" FromRole="Archives" ToRole="Videos" />
         </EntityType>
         <EntityType Name="Auth">
@@ -409,7 +410,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="FromDate" Type="DateTime" Precision="3" />
           <Property Name="ToDate" Type="DateTime" Precision="3" />
           <Property Name="VideoId" Type="Int32" />
@@ -747,6 +747,7 @@
               <MappingFragment StoreEntitySet="Archives">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -789,7 +790,6 @@
               <MappingFragment StoreEntitySet="FeaturedVideos">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="FromDate" ColumnName="FromDate" />
                 <ScalarProperty Name="ToDate" ColumnName="ToDate" />
                 <ScalarProperty Name="VideoId" ColumnName="VideoId" />

@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0cedc0e9b5f6465e9a248c806e0e83a5" Name="Diagram1">
+      <Diagram DiagramId="8f1fcb676d0142388a284aebe99e21bc" Name="Diagram1">
         <EntityTypeShape EntityType="WebSeriesDBModel.Archive" Width="1.5" PointX="13.5" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Auth" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Category" Width="1.5" PointX="9" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Expans" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebSeriesDBModel.FeaturedVideo" Width="1.5" PointX="13.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSeriesDBModel.FeaturedVideo" Width="1.5" PointX="13.5" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Login" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Mywatchlist" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WebSeriesDBModel.Package" Width="1.5" PointX="9" PointY="1.125" IsExpanded="true" />

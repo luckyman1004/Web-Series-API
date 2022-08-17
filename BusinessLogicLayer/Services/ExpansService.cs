@@ -56,12 +56,11 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<ExpansModel, Expans>();
-                c.CreateMap<User, UserModel>();
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<ExpansModel, Expans>(expans);
             var isUpdated = DataAccessFactory.ExpansDataAccess().Update(data);
-            if (!isUpdated) throw new Exception("Expans not updated");
+            if (!isUpdated) throw new Exception("ID's not found or can't updated");
         }
 
         public static void Delete(int id)

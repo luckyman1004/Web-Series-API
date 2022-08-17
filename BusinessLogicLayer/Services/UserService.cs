@@ -18,13 +18,7 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<User, UserModel>();
                 c.CreateMap<Login, LoginModel>();
-                //c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<Salary, SalaryModel>();
-                //c.CreateMap<Subscription, SubscriptionModel>();
-                //c.CreateMap<Package, PackageModel>();
-                //c.CreateMap<Video, VideoModel>();
-                //c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-                //c.CreateMap<Mywatchlist, MywatchlistModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();
@@ -38,13 +32,7 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<User, UserModel>();
                 c.CreateMap<Login, LoginModel>();
-                //c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<Salary, SalaryModel>();
-                //c.CreateMap<Subscription, SubscriptionModel>();
-                //c.CreateMap<Package, PackageModel>();
-                //c.CreateMap<Video, VideoModel>();
-                //c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-                //c.CreateMap<Mywatchlist, MywatchlistModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();
@@ -54,7 +42,10 @@ namespace BusinessLogicLayer.Services
 
         public static void Create(UserModel u)
         {
-            var config = new MapperConfiguration(c => c.CreateMap<UserModel, User>());
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserModel, User>();
+            });
             var mapper = new Mapper(config);
             var data = mapper.Map<User>(u);
             var isCreated = DataAccessFactory.UserDataAccess().Create(data);
