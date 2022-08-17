@@ -21,11 +21,12 @@ namespace BusinessEntityLayer
         public string Name { get; set; }
 
 
-        //public virtual ICollection<ArchiveModel> Archives { get; set; }
+        public virtual ICollection<ArchiveModel> Archives { get; set; }
+        //[JsonIgnore]
         public virtual CategoryModel Category { get; set; }
         
-        //[JsonIgnore]
-        //public virtual ICollection<FeaturedVideoModel> FeaturedVideos { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<FeaturedVideoModel> FeaturedVideos { get; set; }
         public virtual UserModel User { get; set; }
     }
 }

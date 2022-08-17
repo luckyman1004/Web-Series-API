@@ -16,6 +16,7 @@ namespace DataAccessLayer.EntityFramework
     {
         public int Id { get; set; }
         public Nullable<int> VideoId { get; set; }
+        public string Status { get; set; }
     
         public virtual Video Video { get; set; }
     }

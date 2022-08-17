@@ -17,7 +17,6 @@ namespace BusinessLogicLayer
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<Package, PackageModel>();
-                c.CreateMap<User, UserModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.PackageDataAccess();

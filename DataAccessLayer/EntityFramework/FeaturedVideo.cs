@@ -16,7 +16,6 @@ namespace DataAccessLayer.EntityFramework
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Path { get; set; }
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ToDate { get; set; }
         public Nullable<int> VideoId { get; set; }

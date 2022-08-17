@@ -17,9 +17,10 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<Subscription, SubscriptionModel>();
-                c.CreateMap<User, UserModel>();
                 c.CreateMap<Package, PackageModel>();
-
+                c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
+                c.CreateMap<Salary, SalaryModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.SubscriptionDataAccess();
@@ -27,12 +28,13 @@ namespace BusinessLogicLayer.Services
             return data;
         }
 
-        //public static List<string> GetSubscriptionNames()
-        //{
-        //    var da = DataAccessFactory.SubscriptionDataAccess();
-        //    var data = da.Get().Select(n => n.Name).ToList();
-        //    return data;
-        //}
+        public static List<string> GetSubscriptions()
+        {
+
+            var da = DataAccessFactory.SubscriptionDataAccess();
+            var data = da.Get().Select(n => n.Id);
+            return (List<string>)data;
+        }
 
         public static void Create(SubscriptionModel p)
         {
@@ -51,7 +53,6 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<SubscriptionModel, Subscription>();
-
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<Subscription>(p);

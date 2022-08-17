@@ -12,13 +12,12 @@ namespace Web_Series_API__ASP.NET.Controllers
 {
     public class SubscriptionController : ApiController
     {
-        //[Route("api/package/names")]
-        //[HttpGet]
-
-        //public HttpResponseMessage GetNames()
-        //{
-        //    return Request.CreateResponse(HttpStatusCode.OK, SubscriptionService.GetSubscriptionNames());
-        //}
+        [Route("api/subscriptions")]
+        [HttpGet]
+        public HttpResponseMessage GetSubList()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, SubscriptionService.GetSubscriptions());
+        }
 
         [Route("api/Subscription/all")]
         [HttpGet]

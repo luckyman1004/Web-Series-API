@@ -17,10 +17,12 @@ namespace BusinessLogicLayer.Services
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<Category, CategoryModel>();
-                c.CreateMap<Video, VideoModel>();
-                c.CreateMap<User, UserModel>();
-               
-                c.CreateMap<Login, LoginModel>();
+                //c.CreateMap<Video, VideoModel>();
+
+                //c.CreateMap<User, UserModel>();
+                //c.CreateMap<Login, LoginModel>();
+                //c.CreateMap<Salary, SalaryModel>();
+                //c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.CategoryDataAccess();
