@@ -148,6 +148,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntityLayer\BusinessEntityLayer.csproj">
       <Project>{8B5E42C6-953D-4305-84F0-572C37D6000B}</Project>
