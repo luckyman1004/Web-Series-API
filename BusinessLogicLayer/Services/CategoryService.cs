@@ -18,6 +18,8 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<Category, CategoryModel>();
                 c.CreateMap<Video, VideoModel>();
+                c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.CategoryDataAccess();
@@ -30,6 +32,8 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<Category, CategoryModel>();
                 c.CreateMap<Video, VideoModel>();
+                c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.CategoryDataAccess();

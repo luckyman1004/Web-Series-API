@@ -14,16 +14,38 @@ namespace BusinessLogicLayer.Services
     {
         public static List<UserModel> Get()
         {
-            var config = new MapperConfiguration(c => c.CreateMap<User, UserModel>());
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
+                c.CreateMap<Expans, ExpansModel>();
+                c.CreateMap<Salary, SalaryModel>();
+                c.CreateMap<Subscription, SubscriptionModel>();
+                c.CreateMap<Package, PackageModel>();
+                c.CreateMap<Video, VideoModel>();
+                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                c.CreateMap<Mywatchlist, MywatchlistModel>();
+            });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();
             var data = mapper.Map<List<UserModel>>(da.Get());
-            return data; 
+            return data;
         }
 
         public static UserModel Get(int id)
         {
-            var config = new MapperConfiguration(c => c.CreateMap<User, UserModel>());
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
+                c.CreateMap<Expans, ExpansModel>();
+                c.CreateMap<Salary, SalaryModel>();
+                c.CreateMap<Subscription, SubscriptionModel>();
+                c.CreateMap<Package, PackageModel>();
+                c.CreateMap<Video, VideoModel>();
+                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                c.CreateMap<Mywatchlist, MywatchlistModel>();
+            });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.UserDataAccess();
             var data = mapper.Map<UserModel>(da.Get(id));

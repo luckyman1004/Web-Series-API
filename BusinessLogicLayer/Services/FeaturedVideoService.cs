@@ -14,10 +14,13 @@ namespace BusinessLogicLayer.Services
     {
         public static List<FeaturedVideoModel> Get()
         {
+
+           
+
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<FeaturedVideoService, FeaturedVideoModel>();
-                c.CreateMap<Video, VideoModel>();
+                //c.CreateMap<FeaturedVideoModel, FeaturedVideo>();
+                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
                 c.CreateMap<User, UserModel>();
             });
             var mapper = new Mapper(config);
@@ -29,7 +32,7 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<FeaturedVideoService, FeaturedVideoModel>();
+                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
                 c.CreateMap<Video, VideoModel>();
                 c.CreateMap<User, UserModel>();
             });

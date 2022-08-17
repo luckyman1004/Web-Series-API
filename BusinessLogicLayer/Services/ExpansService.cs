@@ -16,8 +16,15 @@ namespace BusinessLogicLayer.Services
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
+                c.CreateMap<Expans, ExpansModel>();
+                c.CreateMap<Salary, SalaryModel>();
+                c.CreateMap<Subscription, SubscriptionModel>();
+                c.CreateMap<Package, PackageModel>();
+                c.CreateMap<Video, VideoModel>();
+                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                c.CreateMap<Mywatchlist, MywatchlistModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.ExpansDataAccess();
@@ -31,6 +38,7 @@ namespace BusinessLogicLayer.Services
             {
                 c.CreateMap<Expans, ExpansModel>();
                 c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
             });
             var mapper = new Mapper(config);
             var da = DataAccessFactory.ExpansDataAccess();

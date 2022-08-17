@@ -28,9 +28,7 @@ namespace DataAccessLayer.EntityFramework
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Code { get; set; }
         public string Status { get; set; }
-        public Nullable<int> UserId { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscription> Subscriptions { get; set; }
     }
