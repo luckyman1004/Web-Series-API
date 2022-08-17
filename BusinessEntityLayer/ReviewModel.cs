@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessEntityLayer
 {
-    public class MywatchlistModel
+    public class ReviewModel
     {
         public int Id { get; set; }
-        public Nullable<int> UserID { get; set; }
-
-        public virtual UserModel User { get; set; }
+        public int VideoId { get; set; }
+        public string Comment { get; set; }
+        public Nullable<double> Rating { get; set; }
     }
 }

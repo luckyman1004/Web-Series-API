@@ -16,8 +16,7 @@ namespace BusinessEntityLayer
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Code { get; set; }
         public string Status { get; set; }
-        public Nullable<int> UserId { get; set; }
 
-        public virtual UserModel User { get; set; }
+        public virtual ICollection<SubscriptionModel> Subscriptions { get; set; }
     }
 }

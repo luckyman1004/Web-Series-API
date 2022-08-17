@@ -22,7 +22,6 @@ namespace BusinessLogicLayer.Services
             var data = mapper.Map<LoginModel, Login>(login);
             var result = DataAccessFactory.AuthDataAccess().Authenticate(data);
 
-            //var authModel = new AuthModel();
             if (result != null)
             {
                 authModel.Token = result.Token;

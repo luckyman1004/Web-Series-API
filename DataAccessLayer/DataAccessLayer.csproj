@@ -88,6 +88,9 @@
     <Compile Include="EntityFramework\Subscription.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\sysdiagram.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\User.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -146,6 +149,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessEntityLayer\BusinessEntityLayer.csproj">
+      <Project>{8B5E42C6-953D-4305-84F0-572C37D6000B}</Project>
+      <Name>BusinessEntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="EntityFramework\WebSeriesDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
@@ -156,12 +165,6 @@
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
       <LastGenOutput>WebSeriesDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessEntityLayer\BusinessEntityLayer.csproj">
-      <Project>{8B5E42C6-953D-4305-84F0-572C37D6000B}</Project>
-      <Name>BusinessEntityLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
