@@ -31,10 +31,15 @@ namespace DataAccessLayer
         }
 
         //Auth
-        public static IRepository<Auth, string> AuthDataAccess()
+        public static IRepository<Login, int> LoginDataAccess()
         {
-            return new AuthRepo(db);
+            return new LoginRepo(db);
         }
+        public static IAuth AuthDataAccess()
+        {
+            return new LoginRepo(db);
+        }
+
         //User
         public static IRepository<User, int> UserDataAccess()
         {

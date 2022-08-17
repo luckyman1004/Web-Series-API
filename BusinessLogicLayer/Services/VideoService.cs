@@ -10,14 +10,43 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Services
 {
-  public  class VideoService
+    public class VideoService
     {
         public static List<VideoModel> Get()
         {
+            //var data = DataAccessFactory.VideoDataAccess().Get();
+            //var videos = new List<VideoModel>();
+
+            //foreach (var item in data)
+            //{
+            //    var vdo = new VideoModel()
+            //    {
+            //        Id = item.Id,
+            //        VideoTitle = item.VideoTitle,
+            //        Description = item.Description,
+            //        Status = item.Status,
+            //        UserId = item.UserId,
+            //        VideoPath = item.VideoPath,
+            //        UploadDate = item.UploadDate,
+            //        Phone = item.User.Phone,
+            //        Address = item.User.Address1
+
+            //    };
+            //    videos.Add(vdo);
+            //}
+            //return videos;
+
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<Video, VideoModel>();
                 c.CreateMap<User, UserModel>();
+                c.CreateMap<Login, LoginModel>();
+                c.CreateMap<Expans, ExpansModel>();
+                c.CreateMap<Salary, SalaryModel>();
+                c.CreateMap<Subscription, SubscriptionModel>();
+                c.CreateMap<Package, PackageModel>();
+                c.CreateMap<Video, VideoModel>();
+                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
+                c.CreateMap<Mywatchlist, MywatchlistModel>();
 
             });
             var mapper = new Mapper(config);
@@ -25,11 +54,11 @@ namespace BusinessLogicLayer.Services
             var data = mapper.Map<List<VideoModel>>(da.Get());
             return data;
         }
+
         public static VideoModel Get(int id)
         {
             var config = new MapperConfiguration(c =>
             {
-                
                 c.CreateMap<Video, VideoModel>();
                 c.CreateMap<User, UserModel>();
             });

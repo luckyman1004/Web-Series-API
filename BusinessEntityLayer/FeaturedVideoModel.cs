@@ -14,9 +14,7 @@ namespace BusinessEntityLayer
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ToDate { get; set; }
         public Nullable<int> VideoId { get; set; }
-        public Nullable<int> UserId { get; set; }
 
-        public virtual UserModel User { get; set; }
         public virtual VideoModel Video { get; set; }
     }
 }

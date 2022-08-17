@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace BusinessEntityLayer
 {
-    public class SubscriptionModel
+    public class UserRequestModel
     {
-
         public int Id { get; set; }
-        public Nullable<int> PackageId { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public int UserId { get; set; }
+        public string RequestTitle { get; set; }
+        public string RequestCategorie { get; set; }
+        public string ImdbLink { get; set; }
 
-        public virtual PackageModel Package { get; set; }
         public virtual UserModel User { get; set; }
-
     }
 }

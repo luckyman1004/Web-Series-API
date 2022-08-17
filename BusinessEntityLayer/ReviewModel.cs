@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessEntityLayer
 {
-    public class LoginModel
+    public class ReviewModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public int VideoId { get; set; }
+        public string Comment { get; set; }
+        public Nullable<double> Rating { get; set; }
     }
 }
-
