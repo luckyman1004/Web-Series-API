@@ -36,10 +36,10 @@ namespace DataAccessLayer.Repo
 
         public bool Create(Login obj)
         {
-            User user = null;
+            User user = new User();
             if (obj == null) return false;
+            user.LoginId = obj.Id;
             db.Logins.Add(obj);
-            user.Id = obj.Id;
             db.Users.Add(user);
             return db.SaveChanges() != 0;
         }
