@@ -4,15 +4,46 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/LoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/LoginService.cs" afterDir="false" />
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="add: sign-up">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/LoginRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/LoginRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/LoginController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="auth" />
+                    <option name="lastUsedInstant" value="1660910137" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1660910136" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -69,8 +100,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660907130038</updated>
-      <workItem from="1660907146482" duration="2637000" />
+      <workItem from="1660907146482" duration="4057000" />
     </task>
+    <task id="LOCAL-00001" summary="add: sign-up">
+      <created>1660910152383</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660910152383</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,7 +122,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/auth" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -91,5 +142,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="add: sign-up" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: sign-up" />
   </component>
 </project>
