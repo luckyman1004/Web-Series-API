@@ -19,10 +19,8 @@ namespace DataAccessLayer.Repo
 
         public Auth Authenticate(Login login)
         {
-
             Auth auth = null;
             var log = db.Logins.FirstOrDefault(l => l.Email.Equals(login.Email) && l.Password.Equals(login.Password));
-
             if (log != null)
             {
                 string token = Guid.NewGuid().ToString();
@@ -38,8 +36,11 @@ namespace DataAccessLayer.Repo
 
         public bool Create(Login obj)
         {
+            User user = null;
             if (obj == null) return false;
             db.Logins.Add(obj);
+            user.Id = obj.Id;
+            db.Users.Add(user);
             return db.SaveChanges() != 0;
         }
 
@@ -50,15 +51,12 @@ namespace DataAccessLayer.Repo
             if (delete == null && deleteUser == null) return false;
             return db.SaveChanges() != 0;
         }
-
-
+        
         public List<Login> Get()
         {
             return db.Logins.ToList();
         }
-
         
-
         public Login Get(int id)
         {
             return db.Logins.FirstOrDefault(u => u.Id.Equals((id)));
