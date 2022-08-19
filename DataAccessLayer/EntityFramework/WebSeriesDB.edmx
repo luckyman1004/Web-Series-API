@@ -89,9 +89,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="VideoId" Type="int" Nullable="false" />
-          <Property Name="Comment" Type="varchar" MaxLength="250" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Rating" Type="float" />
+          <Property Name="UserId" Type="int" />
         </EntityType>
         <EntityType Name="Salarys">
           <Key>
@@ -193,6 +194,30 @@
             </Principal>
             <Dependent Role="Mywatchlists">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="VideoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -322,6 +347,14 @@
           <AssociationSet Name="FK_Mywatchlists_Users" Association="Self.FK_Mywatchlists_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Mywatchlists" EntitySet="Mywatchlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_Users" Association="Self.FK_Reviews_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_Videos" Association="Self.FK_Reviews_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Reviews" EntitySet="Reviews" />
           </AssociationSet>
           <AssociationSet Name="FK_Sessions_Logins" Association="Self.FK_Sessions_Logins">
             <End Role="Logins" EntitySet="Logins" />
@@ -454,9 +487,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VideoId" Type="Int32" Nullable="false" />
-          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Rating" Type="Double" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Reviews_Users" FromRole="Reviews" ToRole="Users" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_Reviews_Videos" FromRole="Reviews" ToRole="Videos" />
         </EntityType>
         <EntityType Name="Salary">
           <Key>
@@ -506,6 +542,7 @@
           <NavigationProperty Name="Expanses" Relationship="Self.FK_Expanses_Users" FromRole="Users" ToRole="Expanses" />
           <NavigationProperty Name="Login" Relationship="Self.FK_Users_Logins" FromRole="Users" ToRole="Logins" />
           <NavigationProperty Name="Mywatchlists" Relationship="Self.FK_Mywatchlists_Users" FromRole="Users" ToRole="Mywatchlists" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Users" FromRole="Users" ToRole="Reviews" />
           <NavigationProperty Name="Salary" Relationship="Self.FK_Users_Salarys" FromRole="Users" ToRole="Salarys" />
           <NavigationProperty Name="Subscriptions" Relationship="Self.FK_Subscriptions_Users" FromRole="Users" ToRole="Subscriptions" />
           <NavigationProperty Name="UserRequests" Relationship="Self.FK_UserRequests_Users" FromRole="Users" ToRole="UserRequests" />
@@ -526,6 +563,7 @@
           <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Videos" FromRole="Videos" ToRole="Archives" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Videos_Categories" FromRole="Videos" ToRole="Categories" />
           <NavigationProperty Name="FeaturedVideos" Relationship="Self.FK_FeaturedVideos_Videos" FromRole="Videos" ToRole="FeaturedVideos" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Videos" FromRole="Videos" ToRole="Reviews" />
           <NavigationProperty Name="User" Relationship="Self.FK_Videos_Users" FromRole="Videos" ToRole="Users" />
         </EntityType>
         <Association Name="FK_Archives_Videos">
@@ -624,6 +662,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Reviews_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_Videos">
+          <End Role="Videos" Type="Self.Video" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Salarys">
           <End Role="Salarys" Type="Self.Salary" Multiplicity="0..1" />
           <End Role="Users" Type="Self.User" Multiplicity="*" />
@@ -718,6 +780,14 @@
           <AssociationSet Name="FK_Subscriptions_Packages" Association="Self.FK_Subscriptions_Packages">
             <End Role="Packages" EntitySet="Packages" />
             <End Role="Subscriptions" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_Users" Association="Self.FK_Reviews_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_Videos" Association="Self.FK_Reviews_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Reviews" EntitySet="Reviews" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Salarys" Association="Self.FK_Users_Salarys">
             <End Role="Salarys" EntitySet="Salarys" />
@@ -836,6 +906,7 @@
                 <ScalarProperty Name="VideoId" ColumnName="VideoId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
