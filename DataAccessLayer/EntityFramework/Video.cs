@@ -19,6 +19,7 @@ namespace DataAccessLayer.EntityFramework
         {
             this.Archives = new HashSet<Archive>();
             this.FeaturedVideos = new HashSet<FeaturedVideo>();
+            this.Reviews = new HashSet<Review>();
         }
     
         public int Id { get; set; }
@@ -35,6 +36,8 @@ namespace DataAccessLayer.EntityFramework
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FeaturedVideo> FeaturedVideos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Reviews { get; set; }
         public virtual User User { get; set; }
     }
 }

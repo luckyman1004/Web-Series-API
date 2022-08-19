@@ -19,6 +19,7 @@ namespace DataAccessLayer.EntityFramework
         {
             this.Expanses = new HashSet<Expans>();
             this.Mywatchlists = new HashSet<Mywatchlist>();
+            this.Reviews = new HashSet<Review>();
             this.Subscriptions = new HashSet<Subscription>();
             this.UserRequests = new HashSet<UserRequest>();
             this.Videos = new HashSet<Video>();
@@ -40,6 +41,8 @@ namespace DataAccessLayer.EntityFramework
         public virtual Login Login { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mywatchlist> Mywatchlists { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Reviews { get; set; }
         public virtual Salary Salary { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscription> Subscriptions { get; set; }
