@@ -26,5 +26,21 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error user not login", e);
             }
         }
+        
+        [Route("api/sign-up")]
+        [HttpPost]
+        public HttpResponseMessage Post(LoginModel login)
+        {
+            try
+            {
+                LoginService.Create(login);
+                return Request.CreateResponse(HttpStatusCode.Created, "User registered successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error register user", e);
+            }
+        }
     }
 }

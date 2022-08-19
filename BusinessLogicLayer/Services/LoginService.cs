@@ -32,5 +32,18 @@ namespace BusinessLogicLayer.Services
                 throw new Exception("User not found");
             } 
         }
+        
+        public static void Create(LoginModel login)
+        {
+            login.Role = "User";
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<LoginModel, Login>();
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Login>(login);
+            var isCreated = DataAccessFactory.LoginDataAccess().Create(data);
+            if (!isCreated) throw new Exception("User not created");
+        }
     }
 }
