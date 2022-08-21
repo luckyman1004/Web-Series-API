@@ -42,5 +42,11 @@ namespace BusinessLogicLayer.Services
             var isFind = mapper.Map<Login, LoginModel>(DataAccessFactory.AuthDataAccess().GetByEmail(email));
             return isFind;
         }
+        
+        public static bool isAuthenticated(string token)
+        {
+            var result = DataAccessFactory.AuthDataAccess().isAuthenticated(token);
+            return result;
+        }
     }
 }
