@@ -19,9 +19,8 @@ namespace DataAccessLayer.Repo
 
         public bool Create(Login obj)
         {
+            User user = null;
             if (obj == null) return false;
-            User user = new User();
-            user.LoginId = obj.Id;
             db.Logins.Add(obj);
             db.Users.Add(user);
             return db.SaveChanges() != 0;
