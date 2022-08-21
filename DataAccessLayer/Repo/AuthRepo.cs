@@ -39,9 +39,11 @@ namespace DataAccessLayer.Repo
             return db.Logins.FirstOrDefault(e => e.Email.Equals((email))); 
         }
 
-        public bool isAuthenticated(Login obj)
+        public bool isAuthenticated(string token)
         {
-            throw new NotImplementedException();
+            if (token == null) return false;
+            var result = db.Tokens.Any(tok => tok.TokenData.Equals((token)) && tok.ExpiredAt == null);
+            return result;
         }
 
         public bool Logout(Login obj)

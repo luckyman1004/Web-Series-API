@@ -7,9 +7,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Web_Series_API__ASP.NET.Auth;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
+    [TokenChecker]
     public class UserController : ApiController
     {
         [EnableCors("*", "*", "*")]
