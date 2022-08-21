@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/TokenChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAuth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAuth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +30,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="auth" />
-                    <option name="lastUsedInstant" value="1661096437" />
+                    <option name="lastUsedInstant" value="1661112619" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -53,6 +47,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/AuthRepo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -149,6 +144,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add: sign-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: sign-up" />
+    <MESSAGE value="add: Authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
