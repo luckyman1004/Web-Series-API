@@ -9,29 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repo
 {
-    public class LoginRepo : IRepository<Login, int>, IAuth
+    public class LoginRepo : IRepository<Login, int>
     {
         WebSeriesDBEntities db;
         public LoginRepo(WebSeriesDBEntities db)
         {
             this.db = db;
-        }
-
-        public Auth Authenticate(Login login)
-        {
-            Auth auth = null;
-            var log = db.Logins.FirstOrDefault(l => l.Email.Equals(login.Email) && l.Password.Equals(login.Password));
-            if (log != null)
-            {
-                string token = Guid.NewGuid().ToString();
-                auth = new Auth();
-                auth.LoginId = log.Id;
-                auth.Token = token;
-                auth.LoginTime = DateTime.Now;
-                db.Auths.Add(auth);
-                db.SaveChanges();
-            }
-            return auth;
         }
 
         public bool Create(Login obj)
@@ -60,16 +43,6 @@ namespace DataAccessLayer.Repo
         public Login Get(int id)
         {
             return db.Logins.FirstOrDefault(u => u.Id.Equals((id)));
-        }
-
-        public bool isAuthenticated(string obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Logout(string obj)
-        {
-            throw new NotImplementedException();
         }
 
         public bool Update(Login obj)

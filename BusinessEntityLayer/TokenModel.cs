@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BusinessEntityLayer
 {
-    public class AuthModel
+    public class TokenModel
     {
         public int Id { get; set; }
-        public string Token { get; set; }
+        public string TokenData { get; set; }
         public string Device { get; set; }
         public string Platfrom { get; set; }
         public string Browser { get; set; }
@@ -20,7 +20,6 @@ namespace BusinessEntityLayer
         public Nullable<int> LoginId { get; set; }
         public Nullable<int> UserId { get; set; }
 
-        public virtual UserModel User { get; set; }
         public virtual LoginModel Login { get; set; }
     }
 }

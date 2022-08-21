@@ -35,9 +35,9 @@ namespace DataAccessLayer
         {
             return new LoginRepo(db);
         }
-        public static IAuth AuthDataAccess()
+        public static IAuth<Login, string> AuthDataAccess()
         {
-            return new LoginRepo(db);
+            return new AuthRepo(db);
         }
 
         //User

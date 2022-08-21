@@ -17,7 +17,7 @@ namespace DataAccessLayer.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Login()
         {
-            this.Auths = new HashSet<Auth>();
+            this.Tokens = new HashSet<Token>();
             this.Users = new HashSet<User>();
         }
     
@@ -28,7 +28,7 @@ namespace DataAccessLayer.EntityFramework
         public string Role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Auth> Auths { get; set; }
+        public virtual ICollection<Token> Tokens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }

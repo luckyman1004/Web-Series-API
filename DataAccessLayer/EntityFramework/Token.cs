@@ -12,10 +12,10 @@ namespace DataAccessLayer.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Auth
+    public partial class Token
     {
         public int Id { get; set; }
-        public string Token { get; set; }
+        public string TokenData { get; set; }
         public string Device { get; set; }
         public string Platfrom { get; set; }
         public string Browser { get; set; }

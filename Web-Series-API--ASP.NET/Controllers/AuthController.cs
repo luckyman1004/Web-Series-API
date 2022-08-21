@@ -9,25 +9,25 @@ using System.Web.Http;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
-    public class LoginController : ApiController
+    public class AuthController : ApiController
     {
-        [Route("api/sign-up")]
+        [Route("api/login")]
         [HttpPost]
-        public HttpResponseMessage Post(LoginModel login)
+        public HttpResponseMessage Login(LoginModel login)
         {
             try
             {
                 if (AuthService.EmailCheck(login.Email) != null)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, "Email is already registered");
+                    AuthService.Authenticate(login);
+                    return Request.CreateResponse(HttpStatusCode.OK, "User login successfully");
                 }
-                LoginService.Create(login);
-                return Request.CreateResponse(HttpStatusCode.Created, "User registered successfully");
+                return Request.CreateResponse(HttpStatusCode.OK, "Please provide valid credentials");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error register user", e);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error user not login", e);
             }
         }
     }

@@ -58,9 +58,6 @@
     <Compile Include="EntityFramework\Archive.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\Auth.cs">
-      <DependentUpon>WebSeriesDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityFramework\Category.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -88,6 +85,9 @@
     <Compile Include="EntityFramework\Subscription.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\Token.cs">
+      <DependentUpon>WebSeriesDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\User.cs">
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
@@ -103,8 +103,8 @@
       <DependentUpon>WebSeriesDB.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\WebSeriesDB.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>WebSeriesDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\WebSeriesDB.Designer.cs">
@@ -119,6 +119,7 @@
     <Compile Include="Interfaces\ISubscription.cs" />
     <Compile Include="Interfaces\IWatch.cs" />
     <Compile Include="Repo\AuthRepo.cs" />
+    <Compile Include="Repo\TokenRepo.cs" />
     <Compile Include="Repo\CategoryRepo.cs" />
     <Compile Include="Repo\ExpansRepo.cs" />
     <Compile Include="Repo\FeaturedVideoRepo.cs" />
