@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.EntityFramework;
+﻿using BusinessEntityLayer;
+using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repo
 {
-    public class AuthRepo : IAuth
+    public class AuthRepo : IAuth<Login, string>
     {
         WebSeriesDBEntities db;
         public AuthRepo(WebSeriesDBEntities db)
@@ -16,65 +17,36 @@ namespace DataAccessLayer.Repo
             this.db = db;
         }
 
-        public bool Authenticate(Auth obj)
+        public Token Authenticate(Login login)
+        {
+            Token tk = null;
+            var log = db.Logins.FirstOrDefault(l => l.Email.Equals(login.Email) && l.Password.Equals(login.Password));
+            if (log != null)
+            {
+                string token = Guid.NewGuid().ToString();
+                tk = new Token();
+                tk.LoginId = log.Id;
+                tk.TokenData = token;
+                tk.LoginTime = DateTime.Now;
+                db.Tokens.Add(tk);
+                db.SaveChanges();
+            }
+            return tk;
+        }
+
+        public Login GetByEmail(string email)
+        {
+            return db.Logins.FirstOrDefault(e => e.Email.Equals((email))); 
+        }
+
+        public bool isAuthenticated(Login obj)
         {
             throw new NotImplementedException();
         }
 
-        public Auth Authenticate(Login login)
+        public bool Logout(Login obj)
         {
             throw new NotImplementedException();
-        }
-
-        public bool Create(Auth obj)
-        {
-            if (obj == null) return false;
-            db.Auths.Add(obj);
-            return db.SaveChanges() != 0;
-        }                                                                                                  
-        public bool Delete(string token)
-        {
-            if (token == null) return false;
-            db.Auths.Remove(db.Auths.FirstOrDefault(del => del.Token.Equals(token)));
-            return db.SaveChanges() != 0;
-        }
-
-        public bool Delete(Auth id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Auth> Get()
-        {
-            return db.Auths.ToList();
-        }
-
-        public Auth Get(string id)
-        {
-            return db.Auths.FirstOrDefault(tok => tok.Token.Equals((id)));
-        }
-
-        public bool isAuthenticated(Auth obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isAuthenticated(string obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Logout(string obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Auth obj)
-        {
-            if (obj == null) return false;
-            var tok = db.Auths.FirstOrDefault(t => t.Token.Equals((t.Token)));
-            db.Entry(tok).CurrentValues.SetValues(obj);
-            return db.SaveChanges() != 0;
         }
     }
 }

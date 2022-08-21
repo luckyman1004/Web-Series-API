@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IAuth
+    public interface IAuth<T, ID>
     {
-        Auth Authenticate(Login login);
-        bool isAuthenticated(string obj);
-        bool Logout(string obj);
-
+        Token Authenticate(Login login);
+        T GetByEmail(ID email);
+        bool isAuthenticated(T obj);
+        bool Logout(T obj);
     }
 }

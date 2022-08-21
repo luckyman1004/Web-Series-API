@@ -26,7 +26,6 @@ namespace DataAccessLayer.EntityFramework
         }
     
         public virtual DbSet<Archive> Archives { get; set; }
-        public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Expans> Expanses { get; set; }
         public virtual DbSet<FeaturedVideo> FeaturedVideos { get; set; }
@@ -36,6 +35,7 @@ namespace DataAccessLayer.EntityFramework
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Salary> Salarys { get; set; }
         public virtual DbSet<Subscription> Subscriptions { get; set; }
+        public virtual DbSet<Token> Tokens { get; set; }
         public virtual DbSet<UserRequest> UserRequests { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
