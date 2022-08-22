@@ -11,11 +11,11 @@ using Web_Series_API__ASP.NET.Auth;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
-    [TokenChecker]
+    // [TokenChecker]
     [EnableCors("*", "*", "*")]
     public class UserController : ApiController
     {
-        [AdminChecker]
+        // [AdminChecker]
         [Route("api/users")]
         [HttpGet]
         public HttpResponseMessage Get()

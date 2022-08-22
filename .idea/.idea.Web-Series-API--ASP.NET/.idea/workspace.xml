@@ -4,22 +4,14 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAccess.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" afterDir="false" />
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="add: auth filter">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/BusinessLogicLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/BusinessLogicLayer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/DataAccessFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/DataAccessFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/DataAccessLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/DataAccessLayer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAuth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAuth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/TokenModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/TokenModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/UserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/LoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/LoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/LoginController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +36,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="auth" />
-                    <option name="lastUsedInstant" value="1661118266" />
+                    <option name="lastUsedInstant" value="1661163612" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1660910136" />
+                    <option name="lastUsedInstant" value="1661163604" />
                   </RecentBranch>
                 </list>
               </option>
@@ -139,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661113750046</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add: auth filter">
+      <created>1661160132980</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661160132981</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +172,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add: sign-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: sign-up" />
+    <MESSAGE value="add: auth filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: auth filter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -190,32 +190,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs</url>
-          <line>23</line>
-          <properties documentPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" initialLine="23" containingFunctionPresentation="method 'Get'">
-            <startOffsets>
-              <option value="560" />
-            </startOffsets>
-            <endOffsets>
-              <option value="561" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs</url>
-          <line>55</line>
-          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" initialLine="55" containingFunctionPresentation="method 'GetLoginByToken'">
-            <startOffsets>
-              <option value="1621" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1633" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs</url>
@@ -242,32 +216,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs</url>
-          <line>53</line>
-          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" initialLine="53" containingFunctionPresentation="method 'GetLoginByToken'">
-            <startOffsets>
-              <option value="1453" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1524" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs</url>
-          <line>54</line>
-          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" initialLine="54" containingFunctionPresentation="method 'GetLoginByToken'">
-            <startOffsets>
-              <option value="1537" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1608" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

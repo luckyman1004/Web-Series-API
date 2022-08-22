@@ -17,6 +17,7 @@ namespace BusinessEntityLayer
         public Nullable<System.DateTime> ExpiredAt { get; set; }
         public string GMT { get; set; }
         public string OS { get; set; }
+        public string Role { get; set; }
         public Nullable<int> LoginId { get; set; }
         public Nullable<int> UserId { get; set; }
 
