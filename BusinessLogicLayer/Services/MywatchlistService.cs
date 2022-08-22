@@ -14,15 +14,19 @@ namespace BusinessLogicLayer
     {
         public static List<MywatchlistModel> Get()
         {
-            var config = new MapperConfiguration(c =>
+            var data = DataAccessFactory.MywatchlistDataAccess().Get();
+            var withList = new List<MywatchlistModel>();
+            foreach (var item in data)
             {
-                c.CreateMap<Mywatchlist, MywatchlistModel>();
-                c.CreateMap<User, UserModel>();
-            });
-            var mapper = new Mapper(config);
-            var da = DataAccessFactory.MywatchlistDataAccess();
-            var data = mapper.Map<List<MywatchlistModel>>(da.Get());
-            return data;
+                var wl = new MywatchlistModel()
+                {
+                    Id = item.Id,
+                    UserID = item.UserID,
+                    Name = item.User.Login.Name
+                };
+                withList.Add(wl);
+            }
+            return withList;
         }
 
         public static void Create(MywatchlistModel p)
