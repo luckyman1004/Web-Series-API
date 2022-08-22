@@ -20,6 +20,12 @@ namespace BusinessEntityLayer
         public Nullable<int> LoginId { get; set; }
 
         public Nullable<int> SalaryId { get; set; }
+        
+        //======================
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Role { get; set; }
+        //======================
 
        
         //[JsonIgnore]

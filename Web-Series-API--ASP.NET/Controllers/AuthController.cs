@@ -22,9 +22,8 @@ namespace Web_Series_API__ASP.NET.Controllers
             {
                 if (AuthService.EmailCheck(login.Email) != null)
                 {
-                    var  token =AuthService.Authenticate(login);
-                    
-                    return Request.CreateResponse(HttpStatusCode.OK, token.TokenData);
+                    var token = AuthService.Authenticate(login);
+                    return Request.CreateResponse(HttpStatusCode.OK, token);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, "Please provide valid credentials");
             }

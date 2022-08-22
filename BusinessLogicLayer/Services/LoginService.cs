@@ -25,5 +25,17 @@ namespace BusinessLogicLayer.Services
             var isCreated = DataAccessFactory.LoginDataAccess().Create(data);
             if (!isCreated) throw new Exception("User not created");
         }
+        
+        public static LoginModel Get(int id)
+        {
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Login, LoginModel>();
+            });
+            var mapper = new Mapper(config);
+            var da = DataAccessFactory.LoginDataAccess();
+            var data = mapper.Map<LoginModel>(da.Get(id));
+            return data;
+        }
     }
 }
