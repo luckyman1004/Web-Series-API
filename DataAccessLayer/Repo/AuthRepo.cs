@@ -42,13 +42,20 @@ namespace DataAccessLayer.Repo
         public bool isAuthenticated(string token)
         {
             if (token == null) return false;
-            var result = db.Tokens.Any(tok => tok.TokenData.Equals((token)) && tok.ExpiredAt == null);
-            return result;
+            return  db.Tokens.Any(tok => tok.TokenData.Equals((token)) && tok.ExpiredAt == null);
         }
 
-        public bool Logout(Login obj)
+        public bool Logout(string token)
         {
-            throw new NotImplementedException();
+            if (token == null) return false;
+            var result = db.Tokens.FirstOrDefault(tok => tok.TokenData.Equals(token));
+            if (result != null)
+            {
+                result.ExpiredAt = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

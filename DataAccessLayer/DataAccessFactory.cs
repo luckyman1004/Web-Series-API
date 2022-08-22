@@ -39,6 +39,17 @@ namespace DataAccessLayer
         {
             return new AuthRepo(db);
         }
+        
+        //Token
+        public static IRepository<Token, int> TokenDataAccess()
+        {
+            return new TokenRepo(db);
+        }
+        
+        public static IAccess<Login, string> TokenDataAccessForFilter()
+        {
+            return new TokenRepo(db);
+        }
 
         //User
         public static IRepository<User, int> UserDataAccess()

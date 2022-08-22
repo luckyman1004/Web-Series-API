@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/TokenChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAccess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/BusinessLogicLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/BusinessLogicLayer.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/DataAccessFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/DataAccessFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/DataAccessLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/DataAccessLayer.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAuth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Interfaces/IAuth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/LoginController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" afterDir="false" />
     </list>
@@ -20,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="auth" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -35,7 +44,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="auth" />
-                    <option name="lastUsedInstant" value="1661096437" />
+                    <option name="lastUsedInstant" value="1661118266" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -52,26 +61,34 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/469ece4c5e50469a945a25a6befb4ee56f5e8/f9/ef17c091/HttpControllerDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/469ece4c5e50469a945a25a6befb4ee56f5e8/fd/495a2637/AuthorizationFilterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a1c34579528a4f4dad003b6aa3d82da19de0/e9/428276bf/CorsMessageHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e1ec4cad576357eb65d71fb6879552d4c03c6b6e32548952dbabaecc1426/executioncontext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e827f66b8db3e2cefdb4e77198e99822a8d19dd3af5ab8f13bd1b64c83c6/HttpMessageInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/AuthRepo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2DZWXMZfwgGcFXNu4q5ygnIMean" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Web-Series-API--ASP.NET" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/4.5/xsp4.exe" />
@@ -157,5 +174,106 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add: sign-up" />
     <option name="LAST_COMMIT_MESSAGE" value="add: sign-up" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs</url>
+          <line>12</line>
+          <properties documentPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" initialLine="12" containingFunctionPresentation="method 'OnAuthorization'">
+            <startOffsets>
+              <option value="350" />
+            </startOffsets>
+            <endOffsets>
+              <option value="407" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" initialLine="23" containingFunctionPresentation="method 'Get'">
+            <startOffsets>
+              <option value="560" />
+            </startOffsets>
+            <endOffsets>
+              <option value="561" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs</url>
+          <line>55</line>
+          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" initialLine="55" containingFunctionPresentation="method 'GetLoginByToken'">
+            <startOffsets>
+              <option value="1621" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1633" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" initialLine="25" containingFunctionPresentation="method 'GetLoginByToken'">
+            <startOffsets>
+              <option value="760" />
+            </startOffsets>
+            <endOffsets>
+              <option value="761" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs</url>
+          <line>27</line>
+          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" initialLine="27" containingFunctionPresentation="method 'GetLoginByToken'">
+            <startOffsets>
+              <option value="868" />
+            </startOffsets>
+            <endOffsets>
+              <option value="887" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs</url>
+          <line>53</line>
+          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" initialLine="53" containingFunctionPresentation="method 'GetLoginByToken'">
+            <startOffsets>
+              <option value="1453" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1524" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs</url>
+          <line>54</line>
+          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/TokenRepo.cs" initialLine="54" containingFunctionPresentation="method 'GetLoginByToken'">
+            <startOffsets>
+              <option value="1537" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1608" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

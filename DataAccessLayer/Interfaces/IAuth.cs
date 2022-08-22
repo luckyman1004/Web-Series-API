@@ -12,6 +12,6 @@ namespace DataAccessLayer.Interfaces
         Token Authenticate(Login login);
         T GetByEmail(ID email);
         bool isAuthenticated(ID obj);
-        bool Logout(T obj);
+        bool Logout(ID obj);
     }
 }

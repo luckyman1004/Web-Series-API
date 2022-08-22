@@ -12,9 +12,10 @@ using Web_Series_API__ASP.NET.Auth;
 namespace Web_Series_API__ASP.NET.Controllers
 {
     [TokenChecker]
+    [EnableCors("*", "*", "*")]
     public class UserController : ApiController
     {
-        [EnableCors("*", "*", "*")]
+        [AdminChecker]
         [Route("api/users")]
         [HttpGet]
         public HttpResponseMessage Get()
@@ -30,6 +31,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
+        
         [Route("api/user/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)

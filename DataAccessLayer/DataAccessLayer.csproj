@@ -112,6 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WebSeriesDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAccess.cs" />
     <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\IMywatchlist.cs" />
     <Compile Include="Interfaces\IPackage.cs" />
