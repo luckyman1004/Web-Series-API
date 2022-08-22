@@ -52,7 +52,8 @@ namespace DataAccessLayer.Repo
         public Login GetLoginByToken(string token)
         {
             var tok = db.Tokens.FirstOrDefault(tk => tk.TokenData.Equals((token)));
-            var role = db.Logins.FirstOrDefault(log => log.Id.Equals(tok.LoginId));
+            int id = Convert.ToInt32(tok.LoginId);
+            var role = db.Logins.FirstOrDefault(l => l.Id.Equals(id));
             return role;
         }
         

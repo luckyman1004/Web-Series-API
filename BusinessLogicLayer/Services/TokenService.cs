@@ -24,6 +24,16 @@ namespace BusinessLogicLayer.Services
 
         public static string GetLoginByToken(string token)
         {
+
+            //var config = new MapperConfiguration(c =>
+            //{
+            //    c.CreateMap<Login, LoginModel>();
+            //    c.CreateMap<Token, TokenModel>();
+            //});
+            //var mapper = new Mapper(config);
+            //var isFind = mapper.Map<Login, LoginModel>(DataAccessFactory.TokenDataAccessForFilter().GetLoginByToken(token));
+            //return isFind.Role;
+
             var result = DataAccessFactory.TokenDataAccessForFilter().GetLoginByToken(token);
             return result.Role;
         }
