@@ -4,14 +4,12 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="add: auth filter">
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="manual mapping: user, users">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/TokenModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/TokenModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/MywatchlistModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/MywatchlistModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/UserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/LoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/LoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/MywatchlistService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/MywatchlistService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661160132981</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="manual mapping: user, users">
+      <created>1661202573318</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661202573318</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +178,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add: sign-up" />
     <MESSAGE value="add: auth filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: auth filter" />
+    <MESSAGE value="manual mapping: user, users" />
+    <option name="LAST_COMMIT_MESSAGE" value="manual mapping: user, users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

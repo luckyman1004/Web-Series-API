@@ -10,6 +10,9 @@ namespace BusinessEntityLayer
     {
         public int Id { get; set; }
         public Nullable<int> UserID { get; set; }
+        
+        //========
+        public string Name { get; set; }
 
         public virtual UserModel User { get; set; }
     }

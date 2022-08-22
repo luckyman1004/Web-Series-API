@@ -16,7 +16,6 @@
             {
                 var data = DataAccessFactory.UserDataAccess().Get();
                 var users = new List<UserModel>();
-
                 foreach (var item in data)
                 {
                     var usr = new UserModel()
