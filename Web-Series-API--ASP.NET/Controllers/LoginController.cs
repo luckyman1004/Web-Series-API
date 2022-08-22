@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class LoginController : ApiController
     {
         [Route("api/sign-up")]

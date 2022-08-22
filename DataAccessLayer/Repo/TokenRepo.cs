@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.EntityFramework;
+﻿using BusinessEntityLayer;
+using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repo
 {
-    public class TokenRepo : IRepository<Token, int>
+    public class TokenRepo : IRepository<Token, int>, IAccess<Login, string>
     {
         WebSeriesDBEntities db;
         public TokenRepo(WebSeriesDBEntities db)
@@ -37,7 +38,7 @@ namespace DataAccessLayer.Repo
 
         public Token Get(int id)
         {
-            return db.Tokens.FirstOrDefault(tok => tok.TokenData.Equals((id)));
+            return db.Tokens.FirstOrDefault(tok => tok.Id.Equals((id)));
         }
 
         public bool Update(Token obj)
@@ -47,5 +48,13 @@ namespace DataAccessLayer.Repo
             db.Entry(tok).CurrentValues.SetValues(obj);
             return db.SaveChanges() != 0;
         }
+        
+        public Login GetLoginByToken(string token)
+        {
+            var tok = db.Tokens.FirstOrDefault(tk => tk.TokenData.Equals((token)));
+            var role = db.Logins.FirstOrDefault(log => log.Id.Equals(tok.LoginId));
+            return role;
+        }
+        
     }
 }

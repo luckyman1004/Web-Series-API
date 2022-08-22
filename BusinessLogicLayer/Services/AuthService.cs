@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.Services
     public class AuthService
     {
 
-        public static void Authenticate(LoginModel login)
+        public static TokenModel Authenticate(LoginModel login)
         {
             var tokenModel = new TokenModel();
             var config = new MapperConfiguration(c => c.CreateMap<LoginModel, Login>());
@@ -30,6 +30,7 @@ namespace BusinessLogicLayer.Services
             {
                 throw new Exception("User not found");
             }
+            return tokenModel;
         }
 
         public static LoginModel EmailCheck(string email)
@@ -48,5 +49,15 @@ namespace BusinessLogicLayer.Services
             var result = DataAccessFactory.AuthDataAccess().isAuthenticated(token);
             return result;
         }
+        
+        public static bool Logout(string token)
+        {
+            var result = DataAccessFactory.AuthDataAccess().isAuthenticated(token);
+            return result;
+        }
+
+
+
+
     }
 }
