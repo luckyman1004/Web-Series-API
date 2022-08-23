@@ -18,7 +18,9 @@ namespace BusinessEntityLayer
         public string VideoPath { get; set; }
         public Nullable<System.DateTime> UploadDate { get; set; }
         public Nullable<int> CategoryId { get; set; }
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
+        public string UserName { get; set; }
+
 
 
         public virtual ICollection<ArchiveModel> Archives { get; set; }
