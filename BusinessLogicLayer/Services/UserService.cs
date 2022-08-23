@@ -47,6 +47,7 @@
                     LoginId = item.LoginId,
                     Name = item.Login.Name,
                     Email = item.Login.Email,
+                    Password = item.Login.Password,
                     Role = item.Login.Role,
                     Phone = item.Phone,
                     DOB = item.DOB,
@@ -73,29 +74,30 @@
 
             public static void Update(UserModel user)
             {
-                User data = new User();
+                User usr = new User();
                 Login log = new Login();
 
-                int Id = Convert.ToInt32(user.LoginId);
+                int loginId = Convert.ToInt32(user.LoginId);
+
+                usr.Id = user.Id;
+                usr.LoginId = loginId;
+                usr.Phone = user.Phone;
+                usr.DOB = user.DOB;
+                usr.Address1 = user.Address1;
+                usr.Address2 = user.Address2;
+                usr.Status = user.Status;
+                usr.AccountCreateTime = user.AccountCreateTime;
+                usr.LoginTime = user.LoginTime;
                 
-                data.Id = user.Id;
-                data.LoginId = Id;
-                log.Id = Id;
+                log.Id = loginId;
                 log.Name = user.Name;
                 log.Email = user.Email;
                 log.Password = user.Password;
                 log.Role = user.Role;
-                data.Phone = user.Phone;
-                data.DOB = user.DOB;
-                data.Address1 = user.Address1;
-                data.Address2 = user.Address2;
-                data.Status = user.Status;
-                data.AccountCreateTime = user.AccountCreateTime;
-                data.LoginTime = user.LoginTime;
                 
-                var isUpdatedForUser = DataAccessFactory.UserDataAccess().Update(data);
-                var isUpdatedForLogin = DataAccessFactory.LoginDataAccess().Update(log);
-                if (!isUpdatedForUser && !isUpdatedForLogin) throw new Exception("User not updated");
+                var isUpdatedForUser = DataAccessFactory.UserDataAccess().Update(usr);
+                //var isUpdatedForLogin = DataAccessFactory.LoginDataAccess().Update(log);
+                if (!isUpdatedForUser) throw new Exception("User not updated");
             }
 
             public static void Delete(int id)
