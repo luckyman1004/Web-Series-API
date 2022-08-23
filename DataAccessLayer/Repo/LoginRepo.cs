@@ -47,6 +47,7 @@ namespace DataAccessLayer.Repo
 
         public bool Update(Login obj)
         {
+            if (obj == null) return false;
             var usr = db.Logins.FirstOrDefault(u => u.Id.Equals((obj.Id)));
             if (usr == null) return false;
             db.Entry(usr).CurrentValues.SetValues(obj);

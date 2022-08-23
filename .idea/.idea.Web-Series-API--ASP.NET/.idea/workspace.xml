@@ -4,12 +4,12 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="manual mapping: user, users">
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="manual mapper: wish list">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/MywatchlistModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/MywatchlistModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/UserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/MywatchlistService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/MywatchlistService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/LoginRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/LoginRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/UserRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/UserRepo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +52,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/469ece4c5e50469a945a25a6befb4ee56f5e8/54/78473f05/ActionFilterResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/469ece4c5e50469a945a25a6befb4ee56f5e8/f9/ef17c091/HttpControllerDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/469ece4c5e50469a945a25a6befb4ee56f5e8/fd/495a2637/AuthorizationFilterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a1c34579528a4f4dad003b6aa3d82da19de0/e9/428276bf/CorsMessageHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e1ec4cad576357eb65d71fb6879552d4c03c6b6e32548952dbabaecc1426/executioncontext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e827f66b8db3e2cefdb4e77198e99822a8d19dd3af5ab8f13bd1b64c83c6/HttpMessageInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/BusinessEntityLayer/MywatchlistModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/AuthRepo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -143,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661202573318</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="manual mapper: wish list">
+      <created>1661205829872</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661205829873</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +188,8 @@
     <MESSAGE value="add: sign-up" />
     <MESSAGE value="add: auth filter" />
     <MESSAGE value="manual mapping: user, users" />
-    <option name="LAST_COMMIT_MESSAGE" value="manual mapping: user, users" />
+    <MESSAGE value="manual mapper: wish list" />
+    <option name="LAST_COMMIT_MESSAGE" value="manual mapper: wish list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -222,6 +232,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/UserRepo.cs</url>
+          <line>47</line>
+          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/UserRepo.cs" initialLine="46" containingFunctionPresentation="method 'Update'">
+            <startOffsets>
+              <option value="1305" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1334" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs</url>
+          <line>78</line>
+          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" initialLine="78" containingFunctionPresentation="method 'Update'">
+            <startOffsets>
+              <option value="2790" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2829" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs</url>
+          <line>76</line>
+          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" initialLine="76" containingFunctionPresentation="method 'Update'">
+            <startOffsets>
+              <option value="2748" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2772" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
