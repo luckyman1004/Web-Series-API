@@ -73,14 +73,29 @@
 
             public static void Update(UserModel user)
             {
-                var config = new MapperConfiguration(c =>
-                {
-                    c.CreateMap<UserModel, User>();
-                });
-                var mapper = new Mapper(config);
-                var data = mapper.Map<UserModel, User>(user);
-                var isUpdated = DataAccessFactory.UserDataAccess().Update(data);
-                if (!isUpdated) throw new Exception("User not updated");
+                User data = new User();
+                Login log = new Login();
+
+                int Id = Convert.ToInt32(user.LoginId);
+                
+                data.Id = user.Id;
+                data.LoginId = Id;
+                log.Id = Id;
+                log.Name = user.Name;
+                log.Email = user.Email;
+                log.Password = user.Password;
+                log.Role = user.Role;
+                data.Phone = user.Phone;
+                data.DOB = user.DOB;
+                data.Address1 = user.Address1;
+                data.Address2 = user.Address2;
+                data.Status = user.Status;
+                data.AccountCreateTime = user.AccountCreateTime;
+                data.LoginTime = user.LoginTime;
+                
+                var isUpdatedForUser = DataAccessFactory.UserDataAccess().Update(data);
+                var isUpdatedForLogin = DataAccessFactory.LoginDataAccess().Update(log);
+                if (!isUpdatedForUser && !isUpdatedForLogin) throw new Exception("User not updated");
             }
 
             public static void Delete(int id)
