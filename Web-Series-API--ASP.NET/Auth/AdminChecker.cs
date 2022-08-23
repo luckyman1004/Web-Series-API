@@ -19,7 +19,7 @@ namespace Web_Series_API__ASP.NET.Auth
             {
                 if (TokenService.GetLoginByToken(header.ToString()).Equals("Admin"))
                 {
-                    
+
                 }
                 else
                 {
