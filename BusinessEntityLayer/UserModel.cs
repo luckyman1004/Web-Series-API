@@ -19,7 +19,7 @@ namespace BusinessEntityLayer
         public Nullable<System.DateTime> LoginTime { get; set; }
         public Nullable<int> LoginId { get; set; }
 
-        public Nullable<int> SalaryId { get; set; }
+        //public Nullable<int> SalaryId { get; set; }
         
         //======================
         public string Name { get; set; }
@@ -35,7 +35,7 @@ namespace BusinessEntityLayer
         
         //[JsonIgnore]
         //public virtual ICollection<MywatchlistModel> Mywatchlists { get; set; }
-        public virtual SalaryModel Salary { get; set; }
+        // public virtual SalaryModel Salary { get; set; }
        
         //[JsonIgnore]
         //public virtual ICollection<SubscriptionModel> Subscriptions { get; set; }
