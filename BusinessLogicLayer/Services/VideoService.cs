@@ -14,59 +14,50 @@ namespace BusinessLogicLayer.Services
     {
         public static List<VideoModel> Get()
         {
-            //var data = DataAccessFactory.VideoDataAccess().Get();
-            //var videos = new List<VideoModel>();
 
-            //foreach (var item in data)
-            //{
-            //    var vdo = new VideoModel()
-            //    {
-            //        Id = item.Id,
-            //        VideoTitle = item.VideoTitle,
-            //        Description = item.Description,
-            //        Status = item.Status,
-            //        UserId = item.UserId,
-            //        VideoPath = item.VideoPath,
-            //        UploadDate = item.UploadDate,
-            //        Phone = item.User.Phone,
-            //        Address = item.User.Address1
 
-            //    };
-            //    videos.Add(vdo);
-            //}
-            //return videos;
+            var data = DataAccessFactory.VideoDataAccess().Get();
+            var videos = new List<VideoModel>();
 
-            var config = new MapperConfiguration(c =>
+            foreach (var item in data)
             {
-                c.CreateMap<Video, VideoModel>();
-                c.CreateMap<User, UserModel>();
-                c.CreateMap<Login, LoginModel>();
-                c.CreateMap<Salary, SalaryModel>();
-                c.CreateMap<Category, CategoryModel>(); 
-                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-                 
-            });
-            var mapper = new Mapper(config);
-            var da = DataAccessFactory.VideoDataAccess();
-            var data = mapper.Map<List<VideoModel>>(da.Get());
-            return data;
+                var vdo = new VideoModel()
+                {
+                    Id = item.Id,
+                    VideoTitle = item.VideoTitle,
+                    Description = item.Description,
+                    Status = item.Status,
+                    UserId = item.UserId,
+                    UserName= item.User.Login.Name,
+                    VideoPath = item.VideoPath,
+                    UploadDate = item.UploadDate,
+                    CategoryId = item.CategoryId,
+                    CategoryName = item.Category.Name,
+
+                };
+                videos.Add(vdo);
+            }
+            return videos;
         }
 
         public static VideoModel Get(int id)
         {
-            var config = new MapperConfiguration(c =>
+            var item = DataAccessFactory.VideoDataAccess().Get(id);
+            var vdo = new VideoModel()
             {
-                c.CreateMap<Video, VideoModel>();
-                c.CreateMap<User, UserModel>();
-                c.CreateMap<Login, LoginModel>();
-                c.CreateMap<Salary, SalaryModel>();
-                c.CreateMap<Category, CategoryModel>();
-                c.CreateMap<FeaturedVideo, FeaturedVideoModel>();
-            });
-            var mapper = new Mapper(config);
-            var da = DataAccessFactory.VideoDataAccess();
-            var data = mapper.Map<VideoModel>(da.Get(id));
-            return data;
+                Id = item.Id,
+                VideoTitle = item.VideoTitle,
+                Description = item.Description,
+                Status = item.Status,
+                UserId = item.UserId,
+                UserName = item.User.Login.Name,
+                VideoPath = item.VideoPath,
+                UploadDate = item.UploadDate,
+                CategoryId = item.CategoryId,
+                CategoryName = item.Category.Name,
+
+            };
+            return vdo;
         }
 
         public static void Create(VideoModel video)
@@ -82,15 +73,27 @@ namespace BusinessLogicLayer.Services
         }
 
         public static void Update(VideoModel video)
+
         {
-            var config = new MapperConfiguration(c =>
-            {
-                c.CreateMap<VideoModel, Video>();
-            });
-            var mapper = new Mapper(config);
-            var data = mapper.Map<VideoModel, Video>(video);
-            var isUpdated = DataAccessFactory.VideoDataAccess().Update(data);
-            if (!isUpdated) throw new Exception("Vidoe not updated");
+            Video vid = new Video();
+            Category cat = new Category();
+
+            int loginId = Convert.ToInt32(video.UserId);
+            int catId = Convert.ToInt32(video.CategoryId);
+
+            vid.Id = video.Id;
+            vid.VideoTitle = video.VideoTitle;
+            vid.Description = video.Description;
+            vid.Status = video.Status;
+            vid.UserId = loginId;
+            vid.VideoPath = video.VideoPath;
+            vid.UploadDate = video.UploadDate;
+            vid.CategoryId = catId;
+
+            var isUpdatedForVideo = DataAccessFactory.VideoDataAccess().Update(vid);
+            var isUpdatedForCategory = DataAccessFactory.CategoryDataAccess().Update(cat);
+
+            if (!isUpdatedForVideo) throw new Exception("Video : Video Model not updated");
         }
 
         public static void Delete(int id)
