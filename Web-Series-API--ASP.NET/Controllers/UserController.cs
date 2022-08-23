@@ -11,11 +11,11 @@ using Web_Series_API__ASP.NET.Auth;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
-    // [TokenChecker]
+    [TokenChecker]
     [EnableCors("*", "*", "*")]
     public class UserController : ApiController
     {
-        // [AdminChecker]
+        [AdminChecker]
         [Route("api/users")]
         [HttpGet]
         public HttpResponseMessage Get()
@@ -31,7 +31,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        
+        [AdminChecker]
         [Route("api/user/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
@@ -46,7 +46,8 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error user not found", e);
             }
         }
-
+        
+        [AdminChecker]
         [Route("api/user/create")]
         [HttpPost]
         public HttpResponseMessage Post(UserModel user)
@@ -63,6 +64,7 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
+        [AdminChecker]
         [Route("api/user/edit")]
         [HttpPut]
         public HttpResponseMessage Put(UserModel user)
@@ -78,6 +80,8 @@ namespace Web_Series_API__ASP.NET.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error updating user", e);
             }
         }
+        
+        [AdminChecker]
         [Route("api/user/remove/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(int id)

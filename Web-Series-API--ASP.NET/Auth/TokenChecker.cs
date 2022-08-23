@@ -22,7 +22,7 @@ namespace Web_Series_API__ASP.NET.Auth
             {
                 if (AuthService.isAuthenticated((header.ToString())))
                 {
-                    
+
                 }
                 else
                 {

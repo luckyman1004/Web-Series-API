@@ -4,9 +4,11 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="fix: manual mapping for user update">
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="add: password">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/TokenChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/TokenChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +61,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e827f66b8db3e2cefdb4e77198e99822a8d19dd3af5ab8f13bd1b64c83c6/HttpMessageInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a34f12eddb8d5394a90c39a5fb5769440c8e55aa4d8c58f939f61bf405f8a7d/WaitHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/BusinessEntityLayer/MywatchlistModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/BusinessLogicLayer/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/AuthRepo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/LoginRepo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,15 +78,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Web-Series-API--ASP.NET" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/4.5/xsp4.exe" />
@@ -160,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661247134621</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add: password">
+      <created>1661259226307</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1661259226307</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,24 +210,12 @@
     <MESSAGE value="manual mapping: user, users" />
     <MESSAGE value="manual mapper: wish list" />
     <MESSAGE value="fix: manual mapping for user update" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: manual mapping for user update" />
+    <MESSAGE value="add: password" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs</url>
-          <line>12</line>
-          <properties documentPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" initialLine="12" containingFunctionPresentation="method 'OnAuthorization'">
-            <startOffsets>
-              <option value="350" />
-            </startOffsets>
-            <endOffsets>
-              <option value="407" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs</url>
           <line>25</line>
@@ -244,42 +244,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs</url>
-          <line>76</line>
-          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" initialLine="76" containingFunctionPresentation="method 'Update'">
+          <line>97</line>
+          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs" initialLine="97" containingFunctionPresentation="method 'Update'">
             <startOffsets>
-              <option value="2760" />
+              <option value="3146" />
             </startOffsets>
             <endOffsets>
-              <option value="2782" />
+              <option value="3216" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/UserRepo.cs</url>
-          <line>42</line>
-          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/UserRepo.cs" initialLine="42" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="1074" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1075" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/LoginRepo.cs</url>
-          <line>48</line>
-          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/LoginRepo.cs" initialLine="48" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="1357" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1358" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="35" />
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
