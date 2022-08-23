@@ -97,7 +97,10 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Auth\AdminChecker.cs" />
+    <Compile Include="Auth\PackageManagerChecker.cs" />
     <Compile Include="Auth\TokenChecker.cs" />
+    <Compile Include="Auth\UserChecker.cs" />
+    <Compile Include="Auth\VideoManagerChecker.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ExpenseController.cs" />

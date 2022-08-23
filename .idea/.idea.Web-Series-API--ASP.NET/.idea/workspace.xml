@@ -4,11 +4,14 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="add: password">
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="update: check by token &amp; admin">
+      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/PackageManagerChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/UserChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/VideoManagerChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/TokenChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/TokenChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/VideoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +67,7 @@
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/BusinessLogicLayer/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/AuthRepo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/DataAccessLayer/Repo/LoginRepo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/alvi/RiderProjects/Web-Series-Web-API--ASP.NET/Web-Series-API--ASP.NET/Auth/AdminChecker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -172,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661259226307</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update: check by token &amp; admin">
+      <created>1661284319721</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1661284319721</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,37 +222,12 @@
     <MESSAGE value="manual mapper: wish list" />
     <MESSAGE value="fix: manual mapping for user update" />
     <MESSAGE value="add: password" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: password" />
+    <MESSAGE value="update: check by token &amp; admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: check by token &amp; admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs</url>
-          <line>25</line>
-          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" initialLine="25" containingFunctionPresentation="method 'GetLoginByToken'">
-            <startOffsets>
-              <option value="760" />
-            </startOffsets>
-            <endOffsets>
-              <option value="761" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs</url>
-          <line>27</line>
-          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" initialLine="27" containingFunctionPresentation="method 'GetLoginByToken'">
-            <startOffsets>
-              <option value="868" />
-            </startOffsets>
-            <endOffsets>
-              <option value="887" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/UserService.cs</url>
           <line>97</line>
