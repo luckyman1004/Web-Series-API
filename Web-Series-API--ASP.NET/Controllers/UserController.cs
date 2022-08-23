@@ -12,10 +12,11 @@ using Web_Series_API__ASP.NET.Auth;
 namespace Web_Series_API__ASP.NET.Controllers
 {
     [TokenChecker]
+    [AdminChecker]
     [EnableCors("*", "*", "*")]
     public class UserController : ApiController
     {
-        [AdminChecker]
+        
         [Route("api/users")]
         [HttpGet]
         public HttpResponseMessage Get()
@@ -31,7 +32,6 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [AdminChecker]
         [Route("api/user/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
@@ -47,7 +47,6 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
         
-        [AdminChecker]
         [Route("api/user/create")]
         [HttpPost]
         public HttpResponseMessage Post(UserModel user)
@@ -64,7 +63,6 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [AdminChecker]
         [Route("api/user/edit")]
         [HttpPut]
         public HttpResponseMessage Put(UserModel user)
@@ -81,7 +79,6 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
         
-        [AdminChecker]
         [Route("api/user/remove/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(int id)

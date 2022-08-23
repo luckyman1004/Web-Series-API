@@ -7,11 +7,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Web_Series_API__ASP.NET.Auth;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
     public class VideoController : ApiController
     {
+        [TokenChecker]
+        [VideoManagerChecker]
         [EnableCors("*", "*", "*")]
         [Route("api/videos")]
         [HttpGet]
