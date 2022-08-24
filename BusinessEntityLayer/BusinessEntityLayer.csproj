@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArchiveModel.cs" />
+    <Compile Include="AuthPayloadModel.cs" />
     <Compile Include="TokenModel.cs" />
     <Compile Include="CategoryModel.cs" />
     <Compile Include="ExpansModel.cs" />

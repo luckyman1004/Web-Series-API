@@ -11,11 +11,12 @@ using Web_Series_API__ASP.NET.Auth;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
+    [TokenChecker]
+    [VideoManagerChecker]
+    [EnableCors("*", "*", "*")]
     public class VideoController : ApiController
     {
-        [TokenChecker]
-        [VideoManagerChecker]
-        [EnableCors("*", "*", "*")]
+        
         [Route("api/videos")]
         [HttpGet]
         public HttpResponseMessage Get()

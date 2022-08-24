@@ -52,8 +52,9 @@ namespace DataAccessLayer.Repo
             if (result != null)
             {
                 result.ExpiredAt = DateTime.Now;
+                db.Tokens.Add(result);
                 db.SaveChanges();
-                return true;
+                return db.SaveChanges() != 0;
             }
             return false;
         }
