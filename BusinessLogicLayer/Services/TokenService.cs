@@ -27,5 +27,18 @@ namespace BusinessLogicLayer.Services
             var result = DataAccessFactory.TokenDataAccessForFilter().GetLoginByToken(token);
             return result.Role;
         }
+        
+        public static AuthPayloadModel GetRoleEmailByToken(string token)
+        {
+            var result = DataAccessFactory.TokenDataAccessForFilter().GetLoginByToken(token);
+            var authPayload = new AuthPayloadModel()
+            {
+                Id = result.Id,
+                Email = result.Email,
+                Role = result.Role
+            };
+            return authPayload;
+        }
+        
     }
 }

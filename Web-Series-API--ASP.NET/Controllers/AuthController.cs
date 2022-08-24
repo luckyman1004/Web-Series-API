@@ -34,7 +34,28 @@ namespace Web_Series_API__ASP.NET.Controllers
             }
         }
 
-        [TokenChecker]
+        [Route("api/get/current/user")]
+        [HttpGet]
+        public HttpResponseMessage CurrentUser()
+        {
+            try
+            {
+                var tk = Request.Headers.Authorization.ToString();
+                if (tk != null)
+                {
+                    var roleAndEmail = TokenService.GetRoleEmailByToken(tk);
+                    return Request.CreateResponse(HttpStatusCode.Created, roleAndEmail);
+                }
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Error no role and email");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error user not logout", e);
+            }
+        }
+        
+        
         [Route("api/logout")]
         [HttpPost]
         public HttpResponseMessage Logout()
@@ -48,7 +69,6 @@ namespace Web_Series_API__ASP.NET.Controllers
                     return Request.CreateResponse(HttpStatusCode.Created, "User logout successfully");
                 }
                 return Request.CreateResponse(HttpStatusCode.BadRequest, "Error user not logout");
- 
             }
             catch (Exception e)
             {

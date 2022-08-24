@@ -4,14 +4,14 @@
     <projectFile>Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="update: check by token &amp; admin">
-      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/PackageManagerChecker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/UserChecker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Auth/VideoManagerChecker.cs" afterDir="false" />
+    <list default="true" id="b069f6d9-51fb-4ce2-94d6-6786053d2526" name="Changes" comment="add: authorization for all users">
+      <change afterPath="$PROJECT_DIR$/BusinessEntityLayer/AuthPayloadModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Web-Series-API--ASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessEntityLayer/BusinessEntityLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessEntityLayer/BusinessEntityLayer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/Services/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/AuthController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Controllers/VideoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web-Series-API--ASP.NET/Web-Series-API--ASP.NET.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661284319721</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add: authorization for all users">
+      <created>1661291706318</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661291706319</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +230,8 @@
     <MESSAGE value="fix: manual mapping for user update" />
     <MESSAGE value="add: password" />
     <MESSAGE value="update: check by token &amp; admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: check by token &amp; admin" />
+    <MESSAGE value="add: authorization for all users" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: authorization for all users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -240,6 +248,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs</url>
+          <line>53</line>
+          <properties documentPath="$PROJECT_DIR$/BusinessLogicLayer/Services/AuthService.cs" initialLine="53" containingFunctionPresentation="method 'Logout'">
+            <startOffsets>
+              <option value="1680" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1681" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs</url>
+          <line>48</line>
+          <properties documentPath="$PROJECT_DIR$/DataAccessLayer/Repo/AuthRepo.cs" initialLine="48" containingFunctionPresentation="method 'Logout'">
+            <startOffsets>
+              <option value="1415" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1416" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
