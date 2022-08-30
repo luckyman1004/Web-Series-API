@@ -6,9 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
+using Web_Series_API__ASP.NET.Auth;
 
 namespace Web_Series_API__ASP.NET.Controllers
 {
+    [TokenChecker]
+    [VideoManagerChecker]
+    [EnableCors("*", "*", "*")]
     public class CategoryController : ApiController
     {
         [Route("api/categories")]
